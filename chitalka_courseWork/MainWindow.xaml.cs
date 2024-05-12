@@ -24,12 +24,9 @@ namespace chitalka_courseWork
         { 
 
             InitializeComponent();
-
-            
-            
-
             Loaded += MainWindow_Loaded;
             searchBar.KeyDown += SearchBar_KeyDown;
+
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -40,7 +37,6 @@ namespace chitalka_courseWork
         private void UpdateGreeting()
         {
             int hour = DateTime.Now.Hour;
-            
 
             if (hour >= 4 && hour < 12)
                 greeting.Text =  "Доброго ранку, User!";
@@ -48,15 +44,13 @@ namespace chitalka_courseWork
                 greeting.Text = "Добрий день, User!";
             else
                 greeting.Text = "Добрий вечір, User!";
-
-
         }
 
         private void modeSwitcher_Click(object sender, RoutedEventArgs e)
         {
            
-            
         }
+
 
         private async void SearchBar_KeyDown(object sender, KeyEventArgs e)
         {
@@ -76,11 +70,10 @@ namespace chitalka_courseWork
                     List<Book> books = await taskSearchResult;
 
                     bookListXAML.ItemsSource = books;
-                    
+
                     bookListXAML.Items.Refresh();
                 }
             }
         }
-
     }
 }

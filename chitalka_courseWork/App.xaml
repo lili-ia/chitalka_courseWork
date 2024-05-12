@@ -6,21 +6,30 @@
              xmlns:view="clr-namespace:chitalka_courseWork.MVVM.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewModel:LibraryViewModel}">
                 <view:LibraryView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:SearchViewModel}">
+                <view:SearchView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:StatsViewModel}">
+                <view:StatsView/>
+            </DataTemplate>
 
         </ResourceDictionary>
-
-
         
     </Application.Resources>
 </Application>

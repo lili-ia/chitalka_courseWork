@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="DarkRed">
             
     </Grid>
 </UserControl>

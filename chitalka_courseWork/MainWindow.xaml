@@ -64,25 +64,30 @@
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
 
                 <RadioButton Content="Пошук"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding SearchViewCommand}"/>
                 
                 <RadioButton Content="Бібліотека"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding LibraryViewCommand}"/>
                 
                 <RadioButton Content="Статистика"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding StatsViewCommand}"/>
             
             </StackPanel>
 
@@ -115,10 +120,13 @@
 
 
 
-            <!--<ContentControl Grid.Row="2"
+
+
+
+            <ContentControl Grid.Row="2"
                             Grid.Column="2"
                             Margin="10"
-                            Content="{Binding CurrentView}"/>-->
+                            Content="{Binding CurrentView}"/>
 
 
         </Grid>
