@@ -1,69 +1,56 @@
-﻿using Google.Apis.Books.v1;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using System.Net.Http;
-using Newtonsoft.Json;
-using Google.Apis.Services;
-using Google.Apis.Books.v1.Data;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Web;
-using System.Net;
 
-namespace chitalka_courseWork
+namespace chitalka_courseWork;
+
+public class BookSearch
 {
-    public class BookSearch
+    private static readonly string apiKey = "AIzaSyCEMRkC0TfWFk9pgfy1wkwEflW2k73BTT0";
+
+    public static async Task<List<Book>> Search(string title)
     {
-        private static readonly string apiKey = "AIzaSyCEMRkC0TfWFk9pgfy1wkwEflW2k73BTT0";
+        Book book = null;
+        List<Book> searchResults = [];
 
-        public static async Task<List<Book>> Search(string title)
+
+        string encodedTitle = Uri.EscapeDataString(title);
+        string url = $"https://www.googleapis.com/books/v1/volumes?q={encodedTitle}&country=UA&key={apiKey}";
+
+
+        using (HttpClient client = new())
         {
-            Book book = null;
-            List<Book> searchResults = new List<Book>();
+            HttpResponseMessage response = await client.GetAsync(url);
 
-
-            string encodedTitle = Uri.EscapeDataString(title);
-            string url = $"https://www.googleapis.com/books/v1/volumes?q={encodedTitle}&country=UA&key={apiKey}";
-
-
-            using (HttpClient client = new HttpClient())
+            if (response.IsSuccessStatusCode)
             {
-                HttpResponseMessage response = await client.GetAsync(url);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                dynamic jsonData = JsonConvert.DeserializeObject(responseBody);
 
-                if (response.IsSuccessStatusCode)
+                if (jsonData != null && jsonData.items != null && jsonData.items.Count > 0)
                 {
-                    string responseBody = await response.Content.ReadAsStringAsync();
-                    dynamic jsonData = JsonConvert.DeserializeObject(responseBody);
-
-                    if (jsonData != null && jsonData.items != null && jsonData.items.Count > 0)
+                    
+                    for (int i = 0; i < 8; i++)
                     {
-                        
-                        for (int i = 0; i < 8; i++)
-                        {
-                            dynamic volumeInfo = jsonData.items[i].volumeInfo;
+                        dynamic volumeInfo = jsonData.items[i].volumeInfo;
 
-                            string bookTitle = volumeInfo.title;
-                            string bookDescription = volumeInfo.description ?? "";
-                            string bookAuthor = volumeInfo.authors != null ? string.Join(", ", volumeInfo.authors) : "";
-                            int pageCount = volumeInfo.pageCount;
-                            book = new Book(bookTitle, bookAuthor, bookDescription, pageCount);
+                        string bookTitle = volumeInfo.title;
+                        string bookDescription = volumeInfo.description ?? "";
+                        string bookAuthor = volumeInfo.authors != null ? string.Join(", ", volumeInfo.authors) : "";
+                        int pageCount = volumeInfo.pageCount;
+                        book = new Book(bookTitle, bookAuthor, bookDescription, pageCount);
 
-                            searchResults.Add(book);
-                        }
-                        
+                        searchResults.Add(book);
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"Request failed with status code {response.StatusCode}");
+                    
                 }
             }
-            return searchResults;
+            else
+            {
+                Console.WriteLine($"Request failed with status code {response.StatusCode}");
+            }
         }
+        return searchResults;
     }
-
-    
 }
+
+

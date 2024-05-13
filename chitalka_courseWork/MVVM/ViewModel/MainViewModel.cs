@@ -1,56 +1,47 @@
-﻿using chitalka_courseWork.Core;
+﻿using chitalka_courseWork.MVVM.View;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-namespace chitalka_courseWork.MVVM.ViewModel
+namespace chitalka_courseWork.MVVM.ViewModel;
+
+public partial class MainViewModel : ObservableObject
 {
-    class MainViewModel : Core.ObservableObject
+    [ObservableProperty]
+    private RelayCommand _homeRelayCommand;
+    [ObservableProperty]
+    private RelayCommand _libraryRelayCommand;
+    [ObservableProperty]
+    private RelayCommand _searchRelayCommand;
+    [ObservableProperty]
+    private RelayCommand _statsRelayCommand;
+
+    [ObservableProperty]
+    private HomeView _homeView;
+    [ObservableProperty]
+    private LibraryView _libraryView;
+    [ObservableProperty]
+    private SearchView _searchView;
+    [ObservableProperty]
+    private StatsView _statsView;
+
+    [ObservableProperty]
+    private object _currentView;
+
+    public MainViewModel()
     {
+        HomeView = new HomeView();
+        LibraryView = new LibraryView();
+        SearchView = new SearchView();
+        StatsView = new StatsView();
 
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand LibraryViewCommand { get; set; }
-        public RelayCommand SearchViewCommand { get; set; }
-        public RelayCommand StatsViewCommand { get; set; }
+        CurrentView = HomeView;
+
+        HomeRelayCommand = new RelayCommand(() => CurrentView = HomeView);
+        LibraryRelayCommand = new RelayCommand(() => CurrentView = LibraryView);
+        SearchRelayCommand = new RelayCommand(() => CurrentView = SearchView);
+        StatsRelayCommand = new RelayCommand(() => CurrentView = StatsView);
 
 
-        public HomeViewModel HomeVM { get; set; }
-        public LibraryViewModel LibraryVM { get; set; }
-        public SearchViewModel SearchVM { get; set; }
-        public StatsViewModel StatsVM { get; set; }
-
-
-        private object _currentView;
-
-        public object CurrentView
-        {
-            get { return _currentView; }
-            set { _currentView = value; OnPropertyChanged(); }
-        }
-
-        public MainViewModel()
-        {
-            HomeVM = new HomeViewModel();
-            LibraryVM = new LibraryViewModel();
-            SearchVM = new SearchViewModel();
-            StatsVM = new StatsViewModel();
-
-            HomeViewCommand = new RelayCommand(o => 
-            {
-                CurrentView = HomeVM;
-            });
-
-            LibraryViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = LibraryVM;
-            });
-
-            SearchViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = SearchVM;
-            });
-
-            StatsViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = StatsVM;
-            });
-        }
     }
+
 }

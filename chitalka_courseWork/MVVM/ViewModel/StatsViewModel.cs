@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace chitalka_courseWork.MVVM.ViewModel
+namespace chitalka_courseWork.MVVM.ViewModel;
+
+public partial class StatsViewModel : ObservableObject
 {
-    class StatsViewModel
-    {
-    }
 }

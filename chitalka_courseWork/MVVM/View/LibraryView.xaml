@@ -6,104 +6,43 @@
              xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel.Resources>
-            <Style TargetType="{x:Type Border}">
-                <Setter Property="Margin" Value="25,0,0,0"/>
-            </Style>
-        </StackPanel.Resources>
-        
-        <TextBlock Text="Результати"
-                   Foreground="White"
-                   FontSize="28"
-                   HorizontalAlignment="Left"
-                   Margin="0, 0, 0, 20"/>
+        <Border Padding="5">
+            <ListBox ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
+                            <TextBlock Text="{Binding Author}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
 
-        <StackPanel Orientation="Horizontal" Name="bookStackPanel" >
-            
-            <Border Width="150"
-                    Height="200">
+        <Border Grid.Column="1" Margin="5">
+            <StackPanel DataContext="{Binding SelectedBook}">
+                <TextBlock Text="Book" TextAlignment="Center" FontSize="16"/>
+                <DockPanel>
+                    <TextBlock Text="Title: " />
+                    <TextBlock Text="{Binding Title}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="Author: "/>
+                    <TextBlock Text="{Binding Author}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="Description: "/>
+                    <TextBlock Text="{Binding Description}"/>
+                </DockPanel>
 
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                                         EndPoint="1,2">
-                        <GradientStop Color="#B6BBC4" Offset="0.0"/>
-                        <GradientStop Color="#31304D" Offset="1"/>
-                        
-                    </LinearGradientBrush>     
-                </Border.Background>
+            </StackPanel>
+        </Border>
+    </Grid>
 
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0,150,200"/>
-                </Border.Clip>
-
-            </Border>
-
-            <Border Width="150"
-                    Height="200">
-
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="1,2">
-                        <GradientStop Color="#B6BBC4" Offset="0.0"/>
-                        <GradientStop Color="#31304D" Offset="1"/>
-
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                           RadiusY="10"
-                           Rect="0,0,150,200"/>
-                </Border.Clip>
-
-            </Border>
-
-            <Border Width="150"
-                    Height="200">
-
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="1,2">
-                        <GradientStop Color="#B6BBC4" Offset="0.0"/>
-                        <GradientStop Color="#31304D" Offset="1"/>
-
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                           RadiusY="10"
-                           Rect="0,0,150,200"/>
-                </Border.Clip>
-
-            </Border>
-
-            <Border Width="150"
-                    Height="200">
-
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="1,2">
-                        <GradientStop Color="#B6BBC4" Offset="0.0"/>
-                        <GradientStop Color="#31304D" Offset="1"/>
-
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                           RadiusY="10"
-                           Rect="0,0,150,200"/>
-                </Border.Clip>
-
-            </Border>
-            
-
-        </StackPanel>
-   
-    </StackPanel>
 </UserControl>
