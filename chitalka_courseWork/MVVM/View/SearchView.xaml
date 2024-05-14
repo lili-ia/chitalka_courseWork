@@ -14,7 +14,7 @@
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         
         <Border Background="White" Padding="5">
@@ -35,12 +35,8 @@
 
         <Border Grid.Column="1" Margin="5">
             <StackPanel DataContext="{Binding SelectedBook}">
-                <TextBlock Text="Book" TextAlignment="Center" FontSize="16" Background="White"/>
+                <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="16" Background="White"/>
 
-                <DockPanel Background="White">
-                    <TextBlock Text="Title: " />
-                    <TextBlock Text="{Binding Title}"/>
-                </DockPanel>
 
                 <DockPanel Background="White">
                     <TextBlock Text="Author: "/>
@@ -49,7 +45,7 @@
 
                 <DockPanel Background="White">
                     <TextBlock Text="Description: "/>
-                    <TextBlock Text="{Binding Description}"/>
+                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
                 </DockPanel>
                 <Button Name="AddButton" Content="Add" Height="50" Width="50" Background="White" Click="AddButton_Click"/>
             </StackPanel>

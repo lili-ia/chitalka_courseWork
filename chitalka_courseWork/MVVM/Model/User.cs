@@ -1,24 +1,25 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace chitalka_courseWork.MVVM.Model;
 
-public class User
+public partial class User : ObservableObject
 {
-    public string Nickname {  get; set; }
-    public int Id { get; set; }
-    private string Password { get; set; }
-    //List<BookList> bookLists { get; set; }
-
-    public User(string nickname, string password)
+    [ObservableProperty]
+    private string _nickname;
+    [ObservableProperty]
+    private List<ObservableCollection<Book>> _bookLists;
+    public User(string nickname)
     {
         Nickname = nickname;
-        Password = password;
-        //bookLists = [];
+        BookLists = [];
     }
 
+    
 
 }
