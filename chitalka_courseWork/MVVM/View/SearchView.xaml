@@ -6,7 +6,7 @@
              xmlns:viewModel="clr-namespace:chitalka_courseWork.MVVM.ViewModel"
              xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View" xmlns:ui="http://schemas.modernwpf.com/2019"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="420" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance Type=viewModel:SearchViewModel}"
              >
 
@@ -35,23 +35,23 @@
 
         <Border Grid.Column="1" Margin="5">
             <StackPanel DataContext="{Binding SelectedBook}">
-                <TextBlock Text="Book" TextAlignment="Center" FontSize="16"/>
-                
-                <DockPanel>
+                <TextBlock Text="Book" TextAlignment="Center" FontSize="16" Background="White"/>
+
+                <DockPanel Background="White">
                     <TextBlock Text="Title: " />
                     <TextBlock Text="{Binding Title}"/>
                 </DockPanel>
-                
-                <DockPanel>
+
+                <DockPanel Background="White">
                     <TextBlock Text="Author: "/>
                     <TextBlock Text="{Binding Author}"/>
                 </DockPanel>
-                
-                <DockPanel>
+
+                <DockPanel Background="White">
                     <TextBlock Text="Description: "/>
                     <TextBlock Text="{Binding Description}"/>
                 </DockPanel>
-
+                <Button Name="AddButton" Content="Add" Height="50" Width="50" Background="White" Click="AddButton_Click"/>
             </StackPanel>
         </Border>
         

@@ -6,9 +6,9 @@ namespace chitalka_courseWork.MVVM.View;
 public partial class SearchView : UserControl
 {
     private SearchViewModel viewModel;
-    public SearchView()
+    public SearchView(LibraryViewModel libraryViewModel)
     {
-        viewModel = new SearchViewModel();
+        viewModel = new SearchViewModel(libraryViewModel);
         DataContext = viewModel;
         InitializeComponent();
     }
@@ -17,5 +17,10 @@ public partial class SearchView : UserControl
     {
         viewModel.Query = args.QueryText;
         viewModel.SearchCommand.Execute(null);
+    }
+
+    private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        viewModel.AddBookCommand.Execute(null);
     }
 }

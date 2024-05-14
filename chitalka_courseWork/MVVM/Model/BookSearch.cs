@@ -36,9 +36,8 @@ public class BookSearch
                         string bookTitle = volumeInfo.title;
                         string bookDescription = volumeInfo.description ?? "";
                         string bookAuthor = volumeInfo.authors != null ? string.Join(", ", volumeInfo.authors) : "";
-                        int pageCount = volumeInfo.pageCount;
+                        int? pageCount = volumeInfo.pageCount;
                         book = new Book(bookTitle, bookAuthor, bookDescription, pageCount);
-
                         searchResults.Add(book);
                     }
                     

@@ -76,21 +76,13 @@
 
         </StackPanel>
 
-        <TextBox Name="searchBar"
-                     Grid.Row="1"
-                     Grid.Column="1"
-                     Width="400"
-                     Height="50"
-                     HorizontalAlignment="Left"
-                     Margin="25"
-                     Style="{StaticResource ModernTextbox}"
-            />
 
-        <ContentControl Grid.Row="2"
-                            Grid.Column="2"
-                            Margin="10"
-                            Content="{Binding CurrentView}"
-                            />
+
+        <ContentControl Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Margin="10,10,10,10"
+                        Content="{Binding CurrentView}" Grid.Row="1"
+        />
 
     </Grid>
 </UserControl>

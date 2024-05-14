@@ -27,11 +27,15 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private object _currentView;
 
+
+
     public MainViewModel()
     {
         HomeView = new HomeView();
-        LibraryView = new LibraryView();
-        SearchView = new SearchView();
+
+        LibraryViewModel libraryViewModel = new LibraryViewModel();
+        LibraryView = new LibraryView(libraryViewModel);
+        SearchView = new SearchView(libraryViewModel);
         StatsView = new StatsView();
 
         CurrentView = HomeView;
