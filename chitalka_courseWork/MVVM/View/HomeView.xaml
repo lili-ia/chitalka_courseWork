@@ -6,7 +6,85 @@
              xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Beige">
-            
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ScrollViewer>
+            <StackPanel>
+
+                <TextBlock Text="Останні сесії читання"
+               Foreground="White"
+               FontSize="25"/>
+
+                <Border Width="400" Height="200" 
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                            <GradientStop Color="#31304D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
+                    </Border.Clip>
+                </Border>
+
+                <TextBlock Text="За цей рік ви прочитали"
+        Foreground="White"
+        FontSize="25"/>
+
+                <Border Width="100" Height="100" 
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                            <GradientStop Color="#31304D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,100"/>
+                    </Border.Clip>
+                </Border>
+
+                <TextBlock Text="Cьогодні ви прочитали"
+               Foreground="White"
+               FontSize="25"/>
+
+                <Border Width="100" Height="100" 
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                            <GradientStop Color="#31304D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,100"/>
+                    </Border.Clip>
+                </Border>
+
+                <TextBlock Text="Усього часу провдено за читанням"
+               Foreground="White"
+               FontSize="25"/>
+
+                <Border Width="100" Height="100" 
+            HorizontalAlignment="Left"
+            Margin="5,5,5,5">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                            <GradientStop Color="#31304D" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,100"/>
+                    </Border.Clip>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+        
+
     </Grid>
 </UserControl>

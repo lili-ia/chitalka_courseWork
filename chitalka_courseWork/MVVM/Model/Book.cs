@@ -1,4 +1,6 @@
-﻿namespace chitalka_courseWork;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace chitalka_courseWork;
 public enum ReadingStatus
 {
     NotStarted, 
@@ -6,20 +8,33 @@ public enum ReadingStatus
     Read
 }
 
-public class Book
+public partial class Book : ObservableObject
 {
-    public string Title { get; set; }
-    public string? Description { get; set; }
-    public string Author { get; set; }
-    public int? PagesCount { get; set; }
-    public ReadingStatus ReadingStatus { get; set; }
-    public Book(string title, string author, string? description, int? pagesCount)
+    [ObservableProperty]
+    private string _title;
+
+    [ObservableProperty]
+    private string? _description;
+
+    [ObservableProperty]
+    private string _author;
+
+    [ObservableProperty]
+    private int? _pagesCount;
+
+    [ObservableProperty]
+    private ReadingStatus _readingStatus;
+
+    [ObservableProperty]
+    private string? _coverImageUrl;
+    public Book(string title, string author, string? description, int? pagesCount, string? coverImageUrl)
     {
         Title = title;
         Author = author;
         Description = description;
         PagesCount = pagesCount;
         ReadingStatus = ReadingStatus.NotStarted;
+        CoverImageUrl = coverImageUrl;
     }
 
 

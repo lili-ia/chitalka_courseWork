@@ -32,12 +32,12 @@ public class BookSearch
                     for (int i = 0; i < 8; i++)
                     {
                         dynamic volumeInfo = jsonData.items[i].volumeInfo;
-
                         string bookTitle = volumeInfo.title;
                         string bookDescription = volumeInfo.description ?? "";
                         string bookAuthor = volumeInfo.authors != null ? string.Join(", ", volumeInfo.authors) : "";
+                        string coverUrl = volumeInfo.imageLinks != null ? volumeInfo.imageLinks.thumbnail : "";
                         int? pageCount = volumeInfo.pageCount;
-                        book = new Book(bookTitle, bookAuthor, bookDescription, pageCount);
+                        book = new Book(bookTitle, bookAuthor, bookDescription, pageCount, coverUrl);
                         searchResults.Add(book);
                     }
                     

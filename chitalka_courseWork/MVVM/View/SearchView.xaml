@@ -17,7 +17,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         
-        <Border Background="White" Padding="5">
+        <Border Padding="5">
             <StackPanel>
                 <ui:AutoSuggestBox Text="{Binding Query, Mode=TwoWay}" QueryIcon="Find" QuerySubmitted="AutoSuggestBox_QuerySubmitted"/>
                 <ListBox ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -35,19 +35,38 @@
 
         <Border Grid.Column="1" Margin="5">
             <StackPanel DataContext="{Binding SelectedBook}">
-                <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="16" Background="White"/>
+                <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="20"/>
 
-
-                <DockPanel Background="White">
-                    <TextBlock Text="Author: "/>
+                <DockPanel>
+                    <TextBlock Text="Автор: "/>
                     <TextBlock Text="{Binding Author}"/>
                 </DockPanel>
 
-                <DockPanel Background="White">
-                    <TextBlock Text="Description: "/>
+                <DockPanel>
+                    <Border Width="150" Height="200">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,2">
+                                <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                                <GradientStop Color="#31304D" Offset="1"/>
+
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Image Source="{Binding CoverImageUrl}"/>
+                        <Border.Clip>
+                            <RectangleGeometry RadiusX="10"
+                           RadiusY="10"
+                           Rect="0,0,150,200"/>
+                        </Border.Clip>
+                    </Border>
+                </DockPanel>
+                
+                <DockPanel>
+                    <TextBlock Text="Опис: "/>
                     <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
                 </DockPanel>
-                <Button Name="AddButton" Content="Add" Height="50" Width="50" Background="White" Click="AddButton_Click"/>
+                
+                <Button Name="AddButton" Content="Add" Height="50" Width="50" Click="AddButton_Click"/>
             </StackPanel>
         </Border>
         

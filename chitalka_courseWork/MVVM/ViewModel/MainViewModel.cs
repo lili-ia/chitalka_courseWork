@@ -13,7 +13,7 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private RelayCommand _searchRelayCommand;
     [ObservableProperty]
-    private RelayCommand _statsRelayCommand;
+    private RelayCommand _settingsRelayCommand;
 
     [ObservableProperty]
     private HomeView _homeView;
@@ -22,7 +22,7 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private SearchView _searchView;
     [ObservableProperty]
-    private StatsView _statsView;
+    private SettingsView _settingsView;
 
     [ObservableProperty]
     private object _currentView;
@@ -36,14 +36,14 @@ public partial class MainViewModel : ObservableObject
         LibraryViewModel libraryViewModel = new LibraryViewModel();
         LibraryView = new LibraryView(libraryViewModel);
         SearchView = new SearchView(libraryViewModel);
-        StatsView = new StatsView();
+        SettingsView = new SettingsView();
 
         CurrentView = HomeView;
 
         HomeRelayCommand = new RelayCommand(() => CurrentView = HomeView);
         LibraryRelayCommand = new RelayCommand(() => CurrentView = LibraryView);
         SearchRelayCommand = new RelayCommand(() => CurrentView = SearchView);
-        StatsRelayCommand = new RelayCommand(() => CurrentView = StatsView);
+        SettingsRelayCommand = new RelayCommand(() => CurrentView = SettingsView);
 
 
     }

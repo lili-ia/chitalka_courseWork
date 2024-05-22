@@ -24,6 +24,7 @@ public partial class LibraryView : UserControl
         if (viewModel.SelectedBook != null) 
         {
             viewModel.SelectedBook.ReadingStatus = ReadingStatus.InProgress;
+            viewModel.UpdateBooksCollection();
         }
         else
         {
@@ -31,4 +32,7 @@ public partial class LibraryView : UserControl
         }
         
     }
+
+    
+
 }

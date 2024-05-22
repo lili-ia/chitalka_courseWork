@@ -67,12 +67,12 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding LibraryRelayCommand}"/>
 
-            <RadioButton Content="Статистика"
+            <RadioButton Content="Налаштування"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding StatsRelayCommand}"/>
+                             Command="{Binding SettingsRelayCommand}"/>
 
         </StackPanel>
 
