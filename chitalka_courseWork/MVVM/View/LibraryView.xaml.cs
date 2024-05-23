@@ -33,6 +33,14 @@ public partial class LibraryView : UserControl
         
     }
 
-    
 
+    private void StartTimerButton_Click(object sender, RoutedEventArgs e)
+    {
+        viewModel.StartReadingSessionCommand.Execute(null);
+    }
+
+    private void StopTimerButton_Click(object sender, RoutedEventArgs e)
+    {
+        viewModel.StopReadingSessionCommand.Execute(null);
+    }
 }

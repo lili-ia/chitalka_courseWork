@@ -9,8 +9,8 @@ namespace chitalka_courseWork.MVVM.Model
     public class ReadingSession
     {
         public int PagesRead { get; set; }
-        public DateTime Start {  get; set; }
-        public DateTime End { get; set; }
+        public TimeSpan ReadingTime {  get; set; }
+        public DateOnly ReadingDate { get; set; }
 
         public ReadingSession() { }
         

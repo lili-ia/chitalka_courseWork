@@ -133,38 +133,36 @@
                 <DockPanel Style="{StaticResource DockPanelStatusStyle}">
                     <TextBlock Text="Таймер: "/>
                     <TextBlock Text="{Binding ReadingTimer}"/>
-                    <Button Content="Почати" Command="{Binding StartReadingSessionCommand}"/>
-                    <Button Content="Зупинити" Command="{Binding StopReadingSessionCommand}"/>
+                    <Button Name="StartTimerButton" Content="Почати" Click="StartTimerButton_Click"/>
+                    <Button Name="StopTimerButton" Content="Зупинити" Click="StopTimerButton_Click"/>
                 </DockPanel>
 
                 <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                    <TextBlock Text="Прочитані сторінки за сесію: "/>
-                    <TextBox Text="{Binding PagesReadInSession}"/>
+                    <ProgressBar Value="{Binding ProgressBarValue}" Minimum="0" Maximum="100"/>
                 </DockPanel>
-
-                <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Center"
-                            >
-                    <Button Content="Видалити"
-                            FontSize="15"
-                            Name="DeleteButton"
-                            Height="30" 
-                            Width="80"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Left"
-                            Click="DeleteButton_Click"/>
-                    <Button Content="Читати"
-                            FontSize="15"
-                            Name="ReadButton"
-                            Height="30" 
-                            Width="80"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Left"
-                            Click="ReadButton_Click"/>
-                </StackPanel>
                 
+                <StackPanel Orientation="Horizontal"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center">
+                    <Button Content="Видалити"
+                FontSize="15"
+                Name="DeleteButton"
+                Height="30" 
+                Width="80"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Click="DeleteButton_Click"/>
+                    <Button Content="Читати"
+                FontSize="15"
+                Name="ReadButton"
+                Height="30" 
+                Width="80"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Click="ReadButton_Click"/>
+                </StackPanel>
             </StackPanel>
+
         </Border>
     
     </Grid>

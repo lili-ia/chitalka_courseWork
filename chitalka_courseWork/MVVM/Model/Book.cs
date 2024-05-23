@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using chitalka_courseWork.MVVM.Model;
+using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace chitalka_courseWork;
 public enum ReadingStatus
@@ -27,6 +29,10 @@ public partial class Book : ObservableObject
 
     [ObservableProperty]
     private string? _coverImageUrl;
+
+    [ObservableProperty]
+    public Statistics _stats;
+
     public Book(string title, string author, string? description, int? pagesCount, string? coverImageUrl)
     {
         Title = title;
@@ -39,6 +45,14 @@ public partial class Book : ObservableObject
 
 
     public override string ToString() => $"Title: '{Title}'\nAuthor: {Author}\nDescription: {Description}\n";
-
+    public override int GetHashCode() => HashCode.Combine(Title, Author);
+    public override bool Equals(object obj)
+    {
+        if (obj is Book book)
+        {
+            return Title == book.Title && Author == book.Author;
+        }
+        return false;
+    } 
 
 }

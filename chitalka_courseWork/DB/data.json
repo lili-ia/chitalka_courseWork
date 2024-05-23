@@ -54,5 +54,13 @@
     "PagesCount": 194,
     "ReadingStatus": 0,
     "CoverImageUrl": "http://books.google.com/books/content?id=oAqXDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+  },
+  {
+    "Title": "The Setting Sun",
+    "Description": "This powerful novel of a nation in social and moral crisis was first published by New Directions in 1956. Set in the early postwar years, it probes the destructive effects of war and the transition from a feudal Japan to an industrial society. Ozamu Dazai died, a suicide, in 1948. But the influence of his book has made \"people of the setting sun\" a permanent part of the Japanese language, and his heroine, Kazuko, a young aristocrat who deliberately abandons her class, a symbol of the anomie which pervades so much of the modern world.",
+    "Author": "Osamu Dazai",
+    "PagesCount": 196,
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=tYLyAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
   }
 ]

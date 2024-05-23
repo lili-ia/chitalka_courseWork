@@ -42,6 +42,7 @@
                     <TextBlock Text="{Binding Author}"/>
                 </DockPanel>
 
+
                 <DockPanel>
                     <Border Width="150" Height="200">
                         <Border.Background>
