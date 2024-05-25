@@ -1,4 +1,5 @@
-﻿using chitalka_courseWork.MVVM.ViewModel;
+﻿using chitalka_courseWork.MVVM.Model;
+using chitalka_courseWork.MVVM.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 

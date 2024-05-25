@@ -5,7 +5,30 @@
     "Author": "Chuck Palahniuk",
     "PagesCount": 253,
     "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=HTVAAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "CoverImageUrl": "http://books.google.com/books/content?id=HTVAAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 4,
+          "ReadingTime": "00:00:03.4086095",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 60,
+          "ReadingTime": "00:00:02.1562346",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 0,
+          "ReadingTime": "00:00:01.2283313",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 64
+    }
   },
   {
     "Title": "Fight Club",
@@ -13,23 +36,217 @@
     "Author": "Chuck Palahniuk",
     "PagesCount": 226,
     "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=YgtQHP6srPAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "CoverImageUrl": "http://books.google.com/books/content?id=YgtQHP6srPAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 16,
+          "ReadingTime": "00:00:05.9210076",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 78,
+          "ReadingTime": "00:00:03.7558559",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 9,
+          "ReadingTime": "00:00:02.8670610",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:02.4984309",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 2,
+          "ReadingTime": "00:00:02.2824066",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 44,
+          "ReadingTime": "00:00:02.1668334",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 7,
+          "ReadingTime": "00:00:05.5648023",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 41,
+          "ReadingTime": "00:00:04.1540939",
+          "ReadingDate": "2024-05-23"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:02.7077762",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 2,
+          "ReadingTime": "00:00:01.1970379",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 5,
+          "ReadingTime": "00:00:00.6864030",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 9,
+          "ReadingTime": "00:00:01.4295841",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 77,
+          "ReadingTime": "00:00:01.6546929",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 3,
+          "ReadingTime": "00:00:00.8707590",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:01.1188385",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 14,
+          "ReadingTime": "00:00:01.2145791",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 3,
+          "ReadingTime": "00:00:00.7278423",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 2,
+          "ReadingTime": "00:00:00.9834037",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 352
+    }
   },
   {
     "Title": "Сочини что-нибудь",
     "Description": "В своем новом сборнике «Сочини что-нибудь» Чак Паланик делает то, что удается ему лучше всего, – приводит читателя в восторг и шокирует, смешивая эмоции, как ему заблагорассудится. Мы встретим здесь бывшего стриптизера, пожилого тусовщика, энтузиаста-вирусолога, отчаявшуюся раковую больную, озабоченного сексом школьника – десятки персонажей, одновременно гротескных и реалистичных, словно порожденных больной фантазией писателей-неудачников романа Паланика «Призраки».Жонглирование всевозможными жанрами и табуированными темами, сатира и жестокий стеб с маленькой толикой лирики – здесь есть все!",
     "Author": "Чак Паланик",
     "PagesCount": 317,
-    "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=lH-qCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=lH-qCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 78,
+          "ReadingTime": "00:00:01.8314252",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 5,
+          "ReadingTime": "00:00:01.8345952",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 5,
+          "ReadingTime": "00:00:00.6695470",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:01.6801154",
+          "ReadingDate": "2024-05-24"
+        },
+        {
+          "PagesRead": 9,
+          "ReadingTime": "00:00:01.0321026",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 156,
+          "ReadingTime": "00:00:01.0021985",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 15,
+          "ReadingTime": "00:00:02.4686099",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 288
+    }
   },
   {
     "Title": "DOTA 2: The Comic Collection",
     "Description": "The heroes of Dota 2 forge eternal legacies amidst the chaos of battle as they ward off assaults on their Ancient and push ever closer to the destruction of the enemy's. Now glimpse beyond mere allegiance to Radiant or Dire into the storied lives of these legendary warriors with Dota 2: The Comic Collection. Valve and Dark Horse are proud to present eight premier comics—collected in print for the first time—that delve into the characters and universe of the most played game on Steam. Offering a glimpse into the origins of the Ancients and the deeper workings of the world they inhabit, Dota 2: The Comic Collection is a chronicle that celebrates the passion of Dota 2 players everywhere.",
     "Author": "Valve Corporation",
     "PagesCount": 164,
-    "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=NXcqDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=NXcqDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:03.5780227",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:03.2830703",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 40,
+          "ReadingTime": "00:00:03.3585493",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 50,
+          "ReadingTime": "00:00:01.2196078",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 789,
+          "ReadingTime": "00:00:00.8314115",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 1,
+          "ReadingTime": "00:00:01.0642844",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 156,
+          "ReadingTime": "00:00:00.7839010",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 228,
+          "ReadingTime": "00:00:00.7536197",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 1,
+          "ReadingTime": "00:00:00.6153636",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 1295
+    }
   },
   {
     "Title": "Attack on Titan 2",
@@ -37,7 +254,14 @@
     "Author": "Hajime Isayama",
     "PagesCount": 192,
     "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=njMyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "CoverImageUrl": "http://books.google.com/books/content?id=njMyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
+    }
   },
   {
     "Title": "Attack on Titan 25",
@@ -45,15 +269,29 @@
     "Author": "Hajime Isayama",
     "PagesCount": 190,
     "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=GULrDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "CoverImageUrl": "http://books.google.com/books/content?id=GULrDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
+    }
   },
   {
     "Title": "Attack on Titan",
     "Description": "Locked in desperate battle with the man-eating Titans, the Survey Corps gets closer than ever before to Eren’s basement and unlocking the mysteries of their walled world. But to get there, they will have to make a terrible choice with life-altering consequences for every surviving human soldier…The megahit Attack on Titan anime finally returns, streaming on April 1!",
     "Author": "Hajime Isayama",
     "PagesCount": 194,
-    "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=oAqXDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=oAqXDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
+    }
   },
   {
     "Title": "The Setting Sun",
@@ -61,6 +299,136 @@
     "Author": "Osamu Dazai",
     "PagesCount": 196,
     "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=tYLyAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    "CoverImageUrl": "http://books.google.com/books/content?id=tYLyAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 0,
+          "ReadingTime": "00:00:04.5901114",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:04.4837233",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 50,
+          "ReadingTime": "00:00:03.1296989",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 14,
+          "ReadingTime": "00:00:02.2352611",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 228,
+          "ReadingTime": "00:00:01.5969030",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 9,
+          "ReadingTime": "00:00:00.9704253",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 311
+    }
+  },
+  {
+    "Title": "Американський психопат",
+    "Description": "Патрік Бейтмен — привабливий, доглянутий та ерудований молодий чоловік. Він успішний інвестиційний банкір, який працює на Волл-стріт і має розкішну квартиру. Патрік стежить за модою, попмузикою та полюбляє пліткувати зі своїми друзями в елітних ресторанах Мангеттена. Його життя — справжня американська мрія. Однак це лише вдень. Уночі сором’язливий і трохи боягузливий чоловік перетворюється на звіра, який залюбки мучить людей та вбиває їх у вкрай збочені способи. Як далеко заведе його власне шаленство? І чи насмілиться хтось його зупинити?",
+    "Author": "Брет Істон Елліс",
+    "PagesCount": 510,
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=3QDPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:01.9672335",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:02.2783276",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 30,
+          "ReadingTime": "00:00:01.9756915",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 6,
+          "ReadingTime": "00:00:01.3184814",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 9,
+          "ReadingTime": "00:00:00.9513997",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 4,
+          "ReadingTime": "00:00:01.4091562",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 6,
+          "ReadingTime": "00:00:01.5383234",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 85
+    }
+  },
+  {
+    "Title": "Ті, що співають у терні",
+    "Description": "Чуттєва та зворушлива історія кохання. Кохання, що долає роки і кілометри, обітниці і закони! Бестселер «Ті, що співають у терні» австралійської письменниці Коллін Мак-Каллоу — справжня перлина світової романтичної прози. Сумарний наклад книжки — 10 млн примірників, а серіал за мотивами цього роману вже кілька десятків років посідає друге місце у рейтингу найпопулярніших кінотворів усіх часів та народів. Коли ж на зламі тисячоліть австралійці обирали Національний живий скарб, ним стала велика жінка і велика письменниця Коллін Мак-Каллоу… Єдина дівчинка у багатодітній родині працьовитих австралійських фермерів, Меґґі змалечку почувається зайвою. Лише одна людина щиро співчуває її дитячим бідам — католицький священник Ральф де Брікассар. У самотньому дівочому серці оселяється любов, здатна кинути виклик самим небесам… Як маленька пташина, що співає у терні свою першу й останню пісню, Меґґі нестиме своє кохання до Ральфа крізь життя, страждання, розлуки і втрати. Вкраде у Бога найдорожче. І зазнає поразки, коли її суперниками стануть не чернечі обітниці й самозречення, а людські амбіції й марнославство. Та від троянд залишається попіл, пташиний спів стихає — лише кохання продовжує жити…",
+    "Author": "Коллін Мак-Каллоу",
+    "PagesCount": 745,
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=5u3uEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "ReadingSessions": [
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:01.8347207",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:01.1854297",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 30,
+          "ReadingTime": "00:00:01.2264730",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 115,
+          "ReadingTime": "00:00:01.0132281",
+          "ReadingDate": "2024-05-25"
+        },
+        {
+          "PagesRead": 20,
+          "ReadingTime": "00:00:01.4342208",
+          "ReadingDate": "2024-05-25"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 195
+    }
   }
 ]

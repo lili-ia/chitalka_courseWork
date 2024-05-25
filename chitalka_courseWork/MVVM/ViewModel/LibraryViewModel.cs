@@ -4,7 +4,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace chitalka_courseWork.MVVM.ViewModel
@@ -22,6 +24,9 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private Book? _selectedBook;
 
         [ObservableProperty]
+        private ReadingSession? _selectedSession;
+
+        [ObservableProperty]
         private ObservableCollection<Book> _books;
 
         [ObservableProperty]
@@ -31,35 +36,44 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private ObservableCollection<Book> _readBooks;
 
         [ObservableProperty]
-        private Dictionary<string, Statistics> _bookStats;
-
-        [ObservableProperty]
         private int _selectedBookProgress;
 
-        public string SelectedBookKey 
-        {
-            get => $"{SelectedBook.Title} {SelectedBook.Title}";
-            set => SelectedBookKey = value; 
-        }
-        private ReadingSession readingSession;
+        [ObservableProperty]
+        private ReadingSession _readingSession;
+
         private DateTime timeStart;
         private DateTime timeEnd;
 
         private readonly string booksDataFilePath = "C:\\Users\\Liliia\\source\\repos\\ogurtsy_new\\chitalka_courseWork\\DB\\data.json";
-        private readonly string readingSessionsDataFilePath = "C:\\Users\\Liliia\\source\\repos\\ogurtsy_new\\chitalka_courseWork\\DB\\readingSessions.json";
+
         public LibraryViewModel()
         {
-            string jsonBooksDataAll = File.ReadAllText(booksDataFilePath);
-            Books = JsonConvert.DeserializeObject<ObservableCollection<Book>>(jsonBooksDataAll);
+            LoadBooksData();
             FilterBooks();
             Books.CollectionChanged += Books_CollectionChanged;
-
-            BookStats = new Dictionary<string, Statistics>();
-            LoadReadingStats();
 
             DeleteBookCommand = new RelayCommand(DeleteBook);
             StartReadingSessionCommand = new RelayCommand(StartReadingSession);
             StopReadingSessionCommand = new RelayCommand(StopReadingSession);
+
+            foreach (Book book in Books) 
+            {
+                book.Stats.UpdateProgress();
+                //MessageBox.Show($"Progress is {book.Stats.Progress}");
+            }
+        }
+
+        private void LoadBooksData()
+        {
+            if (File.Exists(booksDataFilePath))
+            {
+                string jsonBooksDataAll = File.ReadAllText(booksDataFilePath);
+                Books = JsonConvert.DeserializeObject<ObservableCollection<Book>>(jsonBooksDataAll) ?? new ObservableCollection<Book>();
+            }
+            else
+            {
+                Books = new ObservableCollection<Book>();
+            }
         }
 
         private void Books_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -67,13 +81,11 @@ namespace chitalka_courseWork.MVVM.ViewModel
             UpdateBooksCollection();
             FilterBooks();
         }
-        
+
         public void UpdateBooksCollection()
         {
             string json = JsonConvert.SerializeObject(Books, Formatting.Indented);
             File.WriteAllText(booksDataFilePath, json);
-            Books = JsonConvert.DeserializeObject<ObservableCollection<Book>>(json);
-            FilterBooks();
         }
 
         private void FilterBooks()
@@ -96,25 +108,6 @@ namespace chitalka_courseWork.MVVM.ViewModel
             }
         }
 
-        public void SaveReadingStats()
-        {
-            string json = JsonConvert.SerializeObject(BookStats, Formatting.Indented);
-            File.WriteAllText(readingSessionsDataFilePath, json);
-        }
-
-        public void LoadReadingStats()
-        {
-            if (File.Exists(readingSessionsDataFilePath))
-            {
-                string json = File.ReadAllText(readingSessionsDataFilePath);
-                BookStats = JsonConvert.DeserializeObject<Dictionary<string, Statistics>>(json);
-            }
-            else
-            {
-                BookStats = new Dictionary<string, Statistics>();
-            }
-        }
-
         public void StartReadingSession()
         {
             timeStart = DateTime.Now;
@@ -126,21 +119,21 @@ namespace chitalka_courseWork.MVVM.ViewModel
 
             if (SelectedBook != null)
             {
-                readingSession = new ReadingSession()
+                ReadingSession = new ReadingSession()
                 {
                     ReadingTime = timeEnd - timeStart,
                     ReadingDate = DateOnly.FromDateTime(timeEnd),
                     PagesRead = GetPagesReadFromUser()
                 };
-
-                if (!BookStats.ContainsKey($"{SelectedBook.Title} {SelectedBook.Author}"))
-                {
-                    BookStats[$"{SelectedBook.Title} {SelectedBook.Author}"] = new Statistics();
-                }
-
-                BookStats[$"{SelectedBook.Title} {SelectedBook.Author}"].ReadingSessions.Add(readingSession);
-                SaveReadingStats();
-                LoadReadingStats();
+                SelectedBook.Stats.ReadingSessions.Add(ReadingSession);
+                SelectedBook.Stats.PagesRead += ReadingSession.PagesRead;
+                SelectedBook.Stats.UpdateProgress();
+                MessageBox.Show($"{SelectedBook.Stats.ReadingSessions.Count} -> count");
+                MessageBox.Show($"{SelectedBook.Stats.PagesRead} -> pages read");
+                MessageBox.Show($"{SelectedBook.Stats.Progress} -> progress");
+                
+                
+                UpdateBooksCollection();
             }
 
             timeStart = DateTime.MinValue;
@@ -150,7 +143,7 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private int GetPagesReadFromUser()
         {
             int pagesRead = 0;
-            var inputDialog = new PagesReadDialog(); 
+            var inputDialog = new PagesReadDialog();
             if (inputDialog.ShowDialog() == true)
             {
                 pagesRead = inputDialog.PagesRead;

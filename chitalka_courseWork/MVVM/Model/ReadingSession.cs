@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace chitalka_courseWork.MVVM.Model
 {
-    public class ReadingSession
+    public partial class ReadingSession : ObservableObject
     {
-        public int PagesRead { get; set; }
-        public TimeSpan ReadingTime {  get; set; }
-        public DateOnly ReadingDate { get; set; }
+        [ObservableProperty]
+        private int _pagesRead;
+        [ObservableProperty]
+        private TimeSpan _readingTime;
+        [ObservableProperty]
+        private DateOnly _readingDate;
+
 
         public ReadingSession() { }
         

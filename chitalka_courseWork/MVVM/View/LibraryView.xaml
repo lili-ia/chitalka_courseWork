@@ -89,9 +89,9 @@
 
             </TabControl>
         </Border>
-
-        <Border Grid.Column="1" Margin="5" Grid.RowSpan="2">
-
+        
+        <Border Grid.Column="1" Margin="5" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True">
+        
             <StackPanel DataContext="{Binding SelectedBook}">
                 <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="16"/>
 
@@ -121,6 +121,11 @@
                 </DockPanel>
 
                 <DockPanel>
+                    <TextBlock Text="Кількість сторінок: "/>
+                    <TextBlock Text="{Binding PagesCount}"/>
+                </DockPanel>
+
+                <DockPanel>
                     <TextBlock Text="Статус: "/>
                     <TextBlock Text="{Binding ReadingStatus}"/>
                 </DockPanel>
@@ -138,7 +143,7 @@
                 </DockPanel>
 
                 <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                    <ProgressBar Value="{Binding ProgressBarValue}" Minimum="0" Maximum="100"/>
+                    <ProgressBar Value="{Binding Stats.Progress}" Minimum="0" Maximum="100"/>
                 </DockPanel>
                 
                 <StackPanel Orientation="Horizontal"
@@ -161,10 +166,29 @@
                 HorizontalAlignment="Left"
                 Click="ReadButton_Click"/>
                 </StackPanel>
-            </StackPanel>
+                
+                <TabControl >
+                    <TabItem Header="Усі сесії читання">
+                        <ListBox ItemsSource="{Binding Stats.ReadingSessions}" SelectedItem="{Binding SelectedSession}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding ReadingTime}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
+                                        <TextBlock Text="{Binding PagesRead}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </TabItem>
+                    <TabItem Header="Цитати">
 
+                    </TabItem>
+                </TabControl>
+
+            </StackPanel>
+            
         </Border>
-    
+        
     </Grid>
     
 </UserControl>

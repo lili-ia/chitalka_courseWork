@@ -22,7 +22,7 @@ public partial class Book : ObservableObject
     private string _author;
 
     [ObservableProperty]
-    private int? _pagesCount;
+    private int _pagesCount;
 
     [ObservableProperty]
     private ReadingStatus _readingStatus;
@@ -31,9 +31,9 @@ public partial class Book : ObservableObject
     private string? _coverImageUrl;
 
     [ObservableProperty]
-    public Statistics _stats;
+    private Statistics _stats;
 
-    public Book(string title, string author, string? description, int? pagesCount, string? coverImageUrl)
+    public Book(string title, string author, string? description, int pagesCount, string? coverImageUrl)
     {
         Title = title;
         Author = author;
@@ -41,6 +41,7 @@ public partial class Book : ObservableObject
         PagesCount = pagesCount;
         ReadingStatus = ReadingStatus.NotStarted;
         CoverImageUrl = coverImageUrl;
+        Stats = new Statistics(pagesCount);
     }
 
 
