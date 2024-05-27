@@ -30,24 +30,46 @@
         </Grid.ColumnDefinitions>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal">
-            <Button Name="SortButton"
-                    Height="25" 
-                    Width="25"
-                    Content="S"
-                    FontSize="5"
-                    Panel.ZIndex="9"
-                    Margin="0,0,5,0"/>
+            <StackPanel Orientation="Vertical"  Margin="2">
+                <TextBlock Text="Sort by" FontSize="16"/>
+                <ComboBox>
+                    <ComboBoxItem>Title</ComboBoxItem>
+                    <ComboBoxItem>Author</ComboBoxItem>
+                    <ComboBoxItem>Pages</ComboBoxItem>
+                    <ComboBoxItem>Rating</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
 
+            <StackPanel Orientation="Vertical"  Margin="2">
+                <TextBlock Text="Genre" FontSize="16"/>
+                <ComboBox>
+                    <ComboBoxItem>Genre</ComboBoxItem>
+                    <ComboBoxItem>Rating</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"  Margin="2">
+                <TextBlock Text="Rating" FontSize="16"/>
+                <ComboBox>
+                    <ComboBoxItem>Unrated</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            
         </StackPanel>
-        
+
+
         <Border Grid.Row="1">
             <TabControl>
-
                 <TabItem Header="Всі">
                     <ListBox ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListBox.ItemTemplate>
@@ -91,7 +113,7 @@
         </Border>
         
         <Border Grid.Column="1" Margin="5" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True">
-        
+            <ScrollViewer>
             <StackPanel DataContext="{Binding SelectedBook}">
                 <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="16"/>
 
@@ -115,6 +137,7 @@
                     </Border>
                 </DockPanel>
 
+                
                 <DockPanel>
                     <TextBlock Text="Опис: "/>
                     <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
@@ -186,7 +209,7 @@
                 </TabControl>
 
             </StackPanel>
-            
+            </ScrollViewer>
         </Border>
         
     </Grid>

@@ -34,6 +34,7 @@
         </Border>
 
         <Border Grid.Column="1" Margin="5">
+            <ScrollViewer>
             <StackPanel DataContext="{Binding SelectedBook}">
                 <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="20"/>
 
@@ -69,6 +70,7 @@
                 
                 <Button Name="AddButton" Content="Add" Height="50" Width="50" Click="AddButton_Click"/>
             </StackPanel>
+            </ScrollViewer>
         </Border>
         
     </Grid>

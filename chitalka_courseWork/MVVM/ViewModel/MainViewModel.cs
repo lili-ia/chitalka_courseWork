@@ -1,4 +1,5 @@
-﻿using chitalka_courseWork.MVVM.View;
+﻿using chitalka_courseWork.MVVM.Model;
+using chitalka_courseWork.MVVM.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -21,8 +22,6 @@ public partial class MainViewModel : ObservableObject
     private LibraryView _libraryView;
     [ObservableProperty]
     private SearchView _searchView;
-    [ObservableProperty]
-    private SettingsView _settingsView;
 
     [ObservableProperty]
     private object _currentView;
@@ -31,19 +30,17 @@ public partial class MainViewModel : ObservableObject
 
     public MainViewModel()
     {
-        HomeView = new HomeView();
 
+        HomeView = new HomeView();
         LibraryViewModel libraryViewModel = new LibraryViewModel();
         LibraryView = new LibraryView(libraryViewModel);
         SearchView = new SearchView(libraryViewModel);
-        SettingsView = new SettingsView();
 
         CurrentView = HomeView;
 
         HomeRelayCommand = new RelayCommand(() => CurrentView = HomeView);
         LibraryRelayCommand = new RelayCommand(() => CurrentView = LibraryView);
         SearchRelayCommand = new RelayCommand(() => CurrentView = SearchView);
-        SettingsRelayCommand = new RelayCommand(() => CurrentView = SettingsView);
 
 
     }

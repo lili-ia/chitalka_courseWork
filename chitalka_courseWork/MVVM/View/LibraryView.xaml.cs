@@ -10,7 +10,7 @@ public partial class LibraryView : UserControl
     private LibraryViewModel viewModel;
     public LibraryView(LibraryViewModel libraryVM)
     {
-        viewModel= libraryVM;
+        viewModel = libraryVM;
         DataContext = viewModel;
         InitializeComponent();
     }
@@ -26,6 +26,7 @@ public partial class LibraryView : UserControl
         {
             viewModel.SelectedBook.ReadingStatus = ReadingStatus.InProgress;
             viewModel.UpdateBooksCollection();
+            viewModel.FilterBooks();
         }
         else
         {
@@ -33,7 +34,6 @@ public partial class LibraryView : UserControl
         }
         
     }
-
 
     private void StartTimerButton_Click(object sender, RoutedEventArgs e)
     {
@@ -43,5 +43,10 @@ public partial class LibraryView : UserControl
     private void StopTimerButton_Click(object sender, RoutedEventArgs e)
     {
         viewModel.StopReadingSessionCommand.Execute(null);
+    }
+
+    private void SortButton_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Sorting!");
     }
 }

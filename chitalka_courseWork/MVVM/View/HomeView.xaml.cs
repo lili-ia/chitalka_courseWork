@@ -1,4 +1,5 @@
-﻿using chitalka_courseWork.MVVM.ViewModel;
+﻿using chitalka_courseWork.MVVM.Model;
+using chitalka_courseWork.MVVM.ViewModel;
 using System.Windows.Controls;
 
 namespace chitalka_courseWork.MVVM.View;
@@ -10,4 +11,6 @@ public partial class HomeView : UserControl
         DataContext = new HomeViewModel();
         InitializeComponent();
     }
+
+
 }

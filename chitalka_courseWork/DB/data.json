@@ -1,342 +1,34 @@
 [
   {
-    "Title": "Verflucht",
-    "Description": "»Hallo, Mr. Satan, hier spricht Madison.« Das sind Madisons erste Worte in ihrem neuen Zuhause – der Hölle. Wie sie dahin gekommen ist? Ihre Eltern sind nicht ganz unschuldig daran. Ihre Mutter, eine selbstverliebte Schauspielerin, und ihr Vater, ein geldverliebter Millionär, lassen ihre Tochter über Weihnachten in einem Schweizer Internat zurück, während sie selbst weitere Waisen adoptieren. Madison katapultiert sich derweil mittels einer Überdosis Marihuana ins Jenseits. Dort trifft sie unter anderem auf einen Cheerleader, eine Sportskanone, einen Außenseiter und einen Punk. Gemeinsam machen sie sich auf den Weg, Satan zur Rede zu stellen, aber so leicht können sie der Hölle nicht entkommen ...",
-    "Author": "Chuck Palahniuk",
-    "PagesCount": 253,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=HTVAAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Title": "The Great Gatsby",
+    "Description": "Reproduction of the original. The publishing house Megali specialises in reproducing historical works in large print to make reading easier for people with impaired vision.",
+    "Author": "F. Scott Fitzgerald",
+    "PagesCount": 249,
+    "ReadingStatus": 2,
+    "CoverImageUrl": "http://books.google.com/books/content?id=1PHaEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
+      "TotalPageCount": 249,
       "ReadingSessions": [
-        {
-          "PagesRead": 4,
-          "ReadingTime": "00:00:03.4086095",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 60,
-          "ReadingTime": "00:00:02.1562346",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 0,
-          "ReadingTime": "00:00:01.2283313",
-          "ReadingDate": "2024-05-25"
-        }
-      ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 64
-    }
-  },
-  {
-    "Title": "Fight Club",
-    "Description": "'Hypnotic, pitiless and told brilliantly' Bret Easton Ellis Every weekend, in basements and parking lots across America, young men with good white-collar jobs and absent fathers take off their shoes and shirts and fight each other. Then they go back to those jobs with blackened eyes and loosened teeth and the sense that they can handle anything. Fight Club is the invention of Tyler Durden, projectionist, waiter and dark, anarchic genius. And it's only the beginning of his plans for revenge on a world where cancer support groups have the corner on human warmth. Read the subversive, savagely funny novel that defined a generation.",
-    "Author": "Chuck Palahniuk",
-    "PagesCount": 226,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=YgtQHP6srPAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [
-        {
-          "PagesRead": 16,
-          "ReadingTime": "00:00:05.9210076",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 78,
-          "ReadingTime": "00:00:03.7558559",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 9,
-          "ReadingTime": "00:00:02.8670610",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:02.4984309",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 2,
-          "ReadingTime": "00:00:02.2824066",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 44,
-          "ReadingTime": "00:00:02.1668334",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 7,
-          "ReadingTime": "00:00:05.5648023",
-          "ReadingDate": "2024-05-23"
-        },
-        {
-          "PagesRead": 41,
-          "ReadingTime": "00:00:04.1540939",
-          "ReadingDate": "2024-05-23"
-        },
         {
           "PagesRead": 20,
-          "ReadingTime": "00:00:02.7077762",
-          "ReadingDate": "2024-05-24"
+          "ReadingTime": "00:00:01.6155272",
+          "ReadingDate": "2024-05-27"
         },
         {
-          "PagesRead": 2,
-          "ReadingTime": "00:00:01.1970379",
-          "ReadingDate": "2024-05-24"
+          "PagesRead": 200,
+          "ReadingTime": "00:00:01.5547010",
+          "ReadingDate": "2024-05-27"
         },
         {
-          "PagesRead": 5,
-          "ReadingTime": "00:00:00.6864030",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 9,
-          "ReadingTime": "00:00:01.4295841",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 77,
-          "ReadingTime": "00:00:01.6546929",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 3,
-          "ReadingTime": "00:00:00.8707590",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:01.1188385",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 14,
-          "ReadingTime": "00:00:01.2145791",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 3,
-          "ReadingTime": "00:00:00.7278423",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 2,
-          "ReadingTime": "00:00:00.9834037",
-          "ReadingDate": "2024-05-25"
+          "PagesRead": 29,
+          "ReadingTime": "00:00:00.8403072",
+          "ReadingDate": "2024-05-27"
         }
       ],
       "Quotes": [],
       "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 352
-    }
-  },
-  {
-    "Title": "Сочини что-нибудь",
-    "Description": "В своем новом сборнике «Сочини что-нибудь» Чак Паланик делает то, что удается ему лучше всего, – приводит читателя в восторг и шокирует, смешивая эмоции, как ему заблагорассудится. Мы встретим здесь бывшего стриптизера, пожилого тусовщика, энтузиаста-вирусолога, отчаявшуюся раковую больную, озабоченного сексом школьника – десятки персонажей, одновременно гротескных и реалистичных, словно порожденных больной фантазией писателей-неудачников романа Паланика «Призраки».Жонглирование всевозможными жанрами и табуированными темами, сатира и жестокий стеб с маленькой толикой лирики – здесь есть все!",
-    "Author": "Чак Паланик",
-    "PagesCount": 317,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=lH-qCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [
-        {
-          "PagesRead": 78,
-          "ReadingTime": "00:00:01.8314252",
-          "ReadingDate": "2024-05-24"
-        },
-        {
-          "PagesRead": 5,
-          "ReadingTime": "00:00:01.8345952",
-          "ReadingDate": "2024-05-24"
-        },
-        {
-          "PagesRead": 5,
-          "ReadingTime": "00:00:00.6695470",
-          "ReadingDate": "2024-05-24"
-        },
-        {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:01.6801154",
-          "ReadingDate": "2024-05-24"
-        },
-        {
-          "PagesRead": 9,
-          "ReadingTime": "00:00:01.0321026",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 156,
-          "ReadingTime": "00:00:01.0021985",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 15,
-          "ReadingTime": "00:00:02.4686099",
-          "ReadingDate": "2024-05-25"
-        }
-      ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 288
-    }
-  },
-  {
-    "Title": "DOTA 2: The Comic Collection",
-    "Description": "The heroes of Dota 2 forge eternal legacies amidst the chaos of battle as they ward off assaults on their Ancient and push ever closer to the destruction of the enemy's. Now glimpse beyond mere allegiance to Radiant or Dire into the storied lives of these legendary warriors with Dota 2: The Comic Collection. Valve and Dark Horse are proud to present eight premier comics—collected in print for the first time—that delve into the characters and universe of the most played game on Steam. Offering a glimpse into the origins of the Ancients and the deeper workings of the world they inhabit, Dota 2: The Comic Collection is a chronicle that celebrates the passion of Dota 2 players everywhere.",
-    "Author": "Valve Corporation",
-    "PagesCount": 164,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=NXcqDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:03.5780227",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:03.2830703",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 40,
-          "ReadingTime": "00:00:03.3585493",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 50,
-          "ReadingTime": "00:00:01.2196078",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 789,
-          "ReadingTime": "00:00:00.8314115",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 1,
-          "ReadingTime": "00:00:01.0642844",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 156,
-          "ReadingTime": "00:00:00.7839010",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 228,
-          "ReadingTime": "00:00:00.7536197",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 1,
-          "ReadingTime": "00:00:00.6153636",
-          "ReadingDate": "2024-05-25"
-        }
-      ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 1295
-    }
-  },
-  {
-    "Title": "Attack on Titan 2",
-    "Description": "Dieser einzigartige Manga um den verzweifelten Kampf der Menschheit gegen übermächtige Titanen vereint Action, Fantasy und Horror in einer mitreißenden Geschichte. Attack on Titan gilt weltweit als einer der beliebtesten Titel und sorgt auch als Anime, Realfilm und mit diversen Videospielen für Furore! Die Erde gehört riesigen Menschenfressern: den TITANEN! Fünf Jahre nach dem Fall der Mauer Maria greifen die Titanen noch einmal die letzten Menschen an. Als sich die neuen Rekruten den Monstern entgegenstellen, wird Eren von einem Titan verschlungen. Das Ende scheint nah. Weitere Infos: - ab 16 Jahren - mit 34 Bänden abgeschlossen - edle Deluxe-Edition im Hardcover erhältlich - mehrere Spin-off-Serien und Guidebooks - Anime und Filme bei Kazé und als Stream - diverse Videospiele",
-    "Author": "Hajime Isayama",
-    "PagesCount": 192,
-    "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=njMyDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 0
-    }
-  },
-  {
-    "Title": "Attack on Titan 25",
-    "Description": "Dieser einzigartige Manga um den verzweifelten Kampf der Menschheit gegen übermächtige Titanen vereint Action, Fantasy und Horror in einer mitreißenden Geschichte. Attack on Titan gilt weltweit als einer der beliebtesten Titel und sorgt auch als Anime, Realfilm und mit diversen Videospielen für Furore! Die Erde gehört riesigen Menschenfressern: den TITANEN! Die größte Bedrohung für die Insel Paradis ist schon seit vielen Jahren das Reich Marley. Dort gibt es Menschen, die tagtäglich alles geben, um ihr Vaterland zu beschützen und ihre Menschenrechte zu bewahren. Um den Wert ihrer Existenz zu beweisen, bereiten sie eine Kriegserklärung an die Insel Paradis vor. Aber als es so weit ist, tauchen unerwartete »Gäste« auf... Weitere Infos: - ab 16 Jahren - mit 34 Bänden abgeschlossen - edle Deluxe-Edition im Hardcover erhältlich - mehrere Spin-off-Serien und Guidebooks - Anime und Filme bei Kazé und als Stream - diverse Videospiele",
-    "Author": "Hajime Isayama",
-    "PagesCount": 190,
-    "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=GULrDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 0
-    }
-  },
-  {
-    "Title": "Attack on Titan",
-    "Description": "Locked in desperate battle with the man-eating Titans, the Survey Corps gets closer than ever before to Eren’s basement and unlocking the mysteries of their walled world. But to get there, they will have to make a terrible choice with life-altering consequences for every surviving human soldier…The megahit Attack on Titan anime finally returns, streaming on April 1!",
-    "Author": "Hajime Isayama",
-    "PagesCount": 194,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=oAqXDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 0
-    }
-  },
-  {
-    "Title": "The Setting Sun",
-    "Description": "This powerful novel of a nation in social and moral crisis was first published by New Directions in 1956. Set in the early postwar years, it probes the destructive effects of war and the transition from a feudal Japan to an industrial society. Ozamu Dazai died, a suicide, in 1948. But the influence of his book has made \"people of the setting sun\" a permanent part of the Japanese language, and his heroine, Kazuko, a young aristocrat who deliberately abandons her class, a symbol of the anomie which pervades so much of the modern world.",
-    "Author": "Osamu Dazai",
-    "PagesCount": 196,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=tYLyAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "ReadingSessions": [
-        {
-          "PagesRead": 0,
-          "ReadingTime": "00:00:04.5901114",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:04.4837233",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 50,
-          "ReadingTime": "00:00:03.1296989",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 14,
-          "ReadingTime": "00:00:02.2352611",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 228,
-          "ReadingTime": "00:00:01.5969030",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 9,
-          "ReadingTime": "00:00:00.9704253",
-          "ReadingDate": "2024-05-25"
-        }
-      ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 311
+      "Progress": 100,
+      "PagesRead": 249
     }
   },
   {
@@ -344,50 +36,90 @@
     "Description": "Патрік Бейтмен — привабливий, доглянутий та ерудований молодий чоловік. Він успішний інвестиційний банкір, який працює на Волл-стріт і має розкішну квартиру. Патрік стежить за модою, попмузикою та полюбляє пліткувати зі своїми друзями в елітних ресторанах Мангеттена. Його життя — справжня американська мрія. Однак це лише вдень. Уночі сором’язливий і трохи боягузливий чоловік перетворюється на звіра, який залюбки мучить людей та вбиває їх у вкрай збочені способи. Як далеко заведе його власне шаленство? І чи насмілиться хтось його зупинити?",
     "Author": "Брет Істон Елліс",
     "PagesCount": 510,
-    "ReadingStatus": 1,
+    "ReadingStatus": 0,
     "CoverImageUrl": "http://books.google.com/books/content?id=3QDPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
+      "TotalPageCount": 510,
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
+    }
+  },
+  {
+    "Title": "Мовчання ягнят",
+    "Description": "Убивця і колишній судовий психіатр Ганнібал Лектер усе ще перебуває в тюремній психіатричній лікарні. Цього разу до нього по допомогу у встановленні особистості чергового серійного злочинця звертається молода стажистка ФБР Кларіс Старлінг. І поки між ними зав’язуються непрості стосунки, маніяк на прізвисько Баффало Білл викрадає доньку сенатора. У ФБР є три дні, щоб знайти дівчину, а для Ганнібала це шанс на укладання вигідної угоди. Яким він неодмінно скористається…",
+    "Author": "Томас Гарріс",
+    "PagesCount": 394,
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=0tzYEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "TotalPageCount": 394,
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
+    }
+  },
+  {
+    "Title": "Я - легенда",
+    "Description": "Він міг стати легендою для людей. Якби люди існували. Він був єдиний, на кого не подіяв страшний вірус, хто не перетворився на вампіра. Зі свого будинку, що нагадує неприступну фортецю, він виходить, тільки щоб убивати. Тих, через кого втратив кохану дружину й улюблену донечку — усе своє життя. Він пізно розуміє, що сонце вже давно сходить над іншим світом…",
+    "Author": "Річард Метісон",
+    "PagesCount": 168,
+    "ReadingStatus": 1,
+    "CoverImageUrl": "http://books.google.com/books/content?id=jw0CEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "TotalPageCount": 168,
       "ReadingSessions": [
         {
+          "PagesRead": 35,
+          "ReadingTime": "00:00:00.5120318",
+          "ReadingDate": "2024-05-27"
+        },
+        {
+          "PagesRead": 21,
+          "ReadingTime": "00:00:00.2405101",
+          "ReadingDate": "2024-05-27"
+        },
+        {
           "PagesRead": 10,
-          "ReadingTime": "00:00:01.9672335",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:02.2783276",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 30,
-          "ReadingTime": "00:00:01.9756915",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 6,
-          "ReadingTime": "00:00:01.3184814",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 9,
-          "ReadingTime": "00:00:00.9513997",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 4,
-          "ReadingTime": "00:00:01.4091562",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 6,
-          "ReadingTime": "00:00:01.5383234",
-          "ReadingDate": "2024-05-25"
+          "ReadingTime": "00:00:00.2438569",
+          "ReadingDate": "2024-05-27"
         }
       ],
       "Quotes": [],
       "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 85
+      "Progress": 39,
+      "PagesRead": 66
+    }
+  },
+  {
+    "Title": "Мисливець на відьом",
+    "Description": "Чужі гріхи можна відпустити. Свої — спокутувати кров’ю. Але чиєю?.. За сюжетами трилерів відомого письменника Роґера Копонена відбувається серія містичних убивств. Знайдено мертвою дружину письменника в розкішній чорній сукні, на її обличчі застигла моторошна посмішка. Дівчина-потопельниця під льодом, чоловік, забитий до смерті камінням, та інші жертви: хтось загрався в кривавого інквізитора, головного героя роману Роґера «Полювання на відьом». За розслідування береться слідча Єссіка Ніємі. І що глибше вона занурюється у справу, то більше розуміє: вбивця не один, тут діє ціла зграя оскаженілих демонів у людській подобі. Вони завжди на крок попереду від Єссіки. Та коли світло проллється на темні закутки життя самої слідчої, жінка усвідомить: вона полює не лише на злочинців. А й на демонів із власного минулого...",
+    "Author": "Макс Сеек",
+    "PagesCount": 393,
+    "ReadingStatus": 2,
+    "CoverImageUrl": "http://books.google.com/books/content?id=UTGxEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "TotalPageCount": 393,
+      "ReadingSessions": [
+        {
+          "PagesRead": 389,
+          "ReadingTime": "00:00:00.6038787",
+          "ReadingDate": "2024-05-27"
+        },
+        {
+          "PagesRead": 10,
+          "ReadingTime": "00:00:00.5136649",
+          "ReadingDate": "2024-05-27"
+        }
+      ],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 101,
+      "PagesRead": 399
     }
   },
   {
@@ -395,40 +127,31 @@
     "Description": "Чуттєва та зворушлива історія кохання. Кохання, що долає роки і кілометри, обітниці і закони! Бестселер «Ті, що співають у терні» австралійської письменниці Коллін Мак-Каллоу — справжня перлина світової романтичної прози. Сумарний наклад книжки — 10 млн примірників, а серіал за мотивами цього роману вже кілька десятків років посідає друге місце у рейтингу найпопулярніших кінотворів усіх часів та народів. Коли ж на зламі тисячоліть австралійці обирали Національний живий скарб, ним стала велика жінка і велика письменниця Коллін Мак-Каллоу… Єдина дівчинка у багатодітній родині працьовитих австралійських фермерів, Меґґі змалечку почувається зайвою. Лише одна людина щиро співчуває її дитячим бідам — католицький священник Ральф де Брікассар. У самотньому дівочому серці оселяється любов, здатна кинути виклик самим небесам… Як маленька пташина, що співає у терні свою першу й останню пісню, Меґґі нестиме своє кохання до Ральфа крізь життя, страждання, розлуки і втрати. Вкраде у Бога найдорожче. І зазнає поразки, коли її суперниками стануть не чернечі обітниці й самозречення, а людські амбіції й марнославство. Та від троянд залишається попіл, пташиний спів стихає — лише кохання продовжує жити…",
     "Author": "Коллін Мак-Каллоу",
     "PagesCount": 745,
-    "ReadingStatus": 1,
+    "ReadingStatus": 0,
     "CoverImageUrl": "http://books.google.com/books/content?id=5u3uEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
-      "ReadingSessions": [
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:01.8347207",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:01.1854297",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 30,
-          "ReadingTime": "00:00:01.2264730",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 115,
-          "ReadingTime": "00:00:01.0132281",
-          "ReadingDate": "2024-05-25"
-        },
-        {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:01.4342208",
-          "ReadingDate": "2024-05-25"
-        }
-      ],
+      "TotalPageCount": 745,
+      "ReadingSessions": [],
       "Quotes": [],
       "Rating": 0,
       "Progress": 0,
-      "PagesRead": 195
+      "PagesRead": 0
+    }
+  },
+  {
+    "Title": "Сходження Ганнібала",
+    "Description": "Ганнібал Лектер — соціопат, геній, убивця. Він не народився маніяком: таким його зробило життя, точніше — смерть. Це історія його народження і становлення. У радянський сиротинець приїздить відомий художник, який хоче забрати звідти свого племінника. Хлопець дивом уцілів у жорнах війни, втративши батьків і сестру. Тепер Ганнібал житиме у Франції, з родиною дядька. Здається, що нарешті він отримав жаданий спокій і любов. Але в душі його живуть демони, їх неможливо відпустити — тільки розтрощити, поглинути, перетравити…",
+    "Author": "Томас Гарріс",
+    "PagesCount": 244,
+    "ReadingStatus": 0,
+    "CoverImageUrl": "http://books.google.com/books/content?id=ZubnEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "TotalPageCount": 244,
+      "ReadingSessions": [],
+      "Quotes": [],
+      "Rating": 0,
+      "Progress": 0,
+      "PagesRead": 0
     }
   }
 ]

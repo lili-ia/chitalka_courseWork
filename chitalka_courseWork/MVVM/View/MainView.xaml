@@ -19,33 +19,23 @@
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Name="greeting"
-                       Grid.Column="0"
+        <TextBlock Grid.Column="0"
                        Grid.Row="1"
-                       Text="Доброго ранку, User!"
+                       Text="Reading Tracker"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="#F0ECE5"
                        FontSize="22"
                        TextWrapping="Wrap"
-            />
+        />
 
-        <Button Name="modeSwitcher" 
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    Width="40"
-                    Height="40"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Margin="10"
-                    Content="Day"
-            />
+
 
         <StackPanel Grid.Column="0" Grid.Row="2">
 
 
 
-            <RadioButton Content="Головна"
+            <RadioButton Content="Main"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
@@ -53,26 +43,21 @@
                              IsChecked="False"
                              Command="{Binding HomeRelayCommand}"/>
 
-            <RadioButton Content="Пошук"
+            <RadioButton Content="Search"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding SearchRelayCommand}"/>
 
-            <RadioButton Content="Бібліотека"
+            <RadioButton Content="Library"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding LibraryRelayCommand}"/>
 
-            <RadioButton Content="Налаштування"
-                             Height="60"
-                             Foreground="#F0ECE5"
-                             FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding SettingsRelayCommand}"/>
+
 
         </StackPanel>
 
