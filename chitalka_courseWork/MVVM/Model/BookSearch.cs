@@ -41,7 +41,6 @@ public class BookSearch
                             book = new Book(bookTitle, bookAuthor, bookDescription, (int)pageCount, coverUrl);
                             searchResults.Add(book);
                         }
-                        
                     }
                     
                 }

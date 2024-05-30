@@ -10,7 +10,7 @@ namespace chitalka_courseWork.MVVM.Model
         private ObservableCollection<ReadingSession> _readingSessions;
 
         [ObservableProperty]
-        private ObservableCollection<string> _quotes;
+        private ObservableCollection<string> _notes;
 
         [ObservableProperty]
         private int _rating; 
@@ -25,8 +25,8 @@ namespace chitalka_courseWork.MVVM.Model
 
         public Statistics()
         {
-            ReadingSessions = new ObservableCollection<ReadingSession>();
-            Quotes = new ObservableCollection<string>();
+            ReadingSessions = [];
+            Notes = [];
             ReadingSessions.CollectionChanged += ReadingSessions_CollectionChanged;
         }
 
@@ -41,17 +41,16 @@ namespace chitalka_courseWork.MVVM.Model
             UpdateProgress();
         }
 
+
         public void UpdateProgress()
         {
             PagesRead = ReadingSessions.Sum(session => session.PagesRead);
 
             if (TotalPageCount > 0)
                 Progress = (100 * PagesRead) / TotalPageCount;
-            
             else
-            {
                 Progress = 0;
-            }
+            
             OnPropertyChanged(nameof(Progress));
         }
     }

@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using chitalka_courseWork.MVVM.View;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
@@ -19,6 +20,9 @@ public partial class SearchViewModel : ObservableObject
     private Book? _selectedBook;
 
     [ObservableProperty]
+    private RelayCommand _addBookManuallyCommand;
+
+    [ObservableProperty]
     private ObservableCollection<Book> _searchResults;
 
     [ObservableProperty]
@@ -27,11 +31,17 @@ public partial class SearchViewModel : ObservableObject
     [ObservableProperty]
     private LibraryViewModel _libraryViewModel;
 
+    [ObservableProperty]
+    private Book _manuallyAddedBook;
+
+
+
     public SearchViewModel(LibraryViewModel libraryViewModel)
     {
         _libraryViewModel = libraryViewModel;
         SearchCommand = new AsyncRelayCommand(Search);
         AddBookCommand = new RelayCommand(AddBook);
+        AddBookManuallyCommand = new RelayCommand(GetNewBookFromUser);
         SearchResults = [];
     }
 
@@ -62,5 +72,22 @@ public partial class SearchViewModel : ObservableObject
             string json = JsonConvert.SerializeObject(LibraryViewModel.Books, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
+    }
+
+
+
+    private void GetNewBookFromUser()
+    {
+        int pagesRead = 0;
+        var inputDialog = new AddingBookManuallyDialog();
+
+        ManuallyAddedBook = new Book("", "", "", 0, "");
+
+        if (inputDialog.ShowDialog() == true)
+        {
+            ManuallyAddedBook = new Book(inputDialog.Title, inputDialog.Author, "", inputDialog.PagesCount, "");
+            LibraryViewModel.Books.Add(ManuallyAddedBook);
+        }
+
     }
 }

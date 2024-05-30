@@ -12,9 +12,6 @@ namespace chitalka_courseWork.MVVM.Model
 
         [ObservableProperty]
         private DateOnly _readingDate;
-
-
-        public ReadingSession() { }
         
     }
 }

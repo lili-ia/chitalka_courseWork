@@ -34,15 +34,6 @@
         <StackPanel Grid.Column="0" Grid.Row="2">
 
 
-
-            <RadioButton Content="Main"
-                             Height="60"
-                             Foreground="#F0ECE5"
-                             FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="False"
-                             Command="{Binding HomeRelayCommand}"/>
-
             <RadioButton Content="Search"
                              Height="60"
                              Foreground="#F0ECE5"

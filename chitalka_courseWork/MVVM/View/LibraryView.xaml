@@ -2,11 +2,40 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewmodel="clr-namespace:chitalka_courseWork.MVVM.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:LibraryViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
 
     <UserControl.Resources>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+
+
+        <Style x:Key="BorderVisibilityStyle" TargetType="Border">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedBook, TargetNullValue={x:Null}}" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="Read">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="InProgress">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="NotStarted">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <Style x:Key="DockPanelStatusStyle" TargetType="DockPanel">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ReadingStatus}" Value="InProgress">
@@ -20,198 +49,273 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-    </UserControl.Resources>
-    
-    <Grid>
+
+        <Style x:Key="RatingStyle" TargetType="StackPanel">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="InProgress">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="Read">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="NotStarted">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="RatingVisibleForReadBooksStyle" TargetType="TextBlock">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ReadingStatus}" Value="InProgress">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ReadingStatus}" Value="Read">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ReadingStatus}" Value="NotStarted">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         
+    </UserControl.Resources>
+
+    <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Orientation="Vertical"  Margin="2">
-                <TextBlock Text="Sort by" FontSize="16"/>
-                <ComboBox>
-                    <ComboBoxItem>Title</ComboBoxItem>
-                    <ComboBoxItem>Author</ComboBoxItem>
-                    <ComboBoxItem>Pages</ComboBoxItem>
-                    <ComboBoxItem>Rating</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
 
-            <StackPanel Orientation="Vertical"  Margin="2">
-                <TextBlock Text="Genre" FontSize="16"/>
-                <ComboBox>
-                    <ComboBoxItem>Genre</ComboBoxItem>
-                    <ComboBoxItem>Rating</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="×" 
+                        Name="ClearFiltersSortingButton"
+                        Command="{Binding ClearFiltersSortingCommand}"
+                        Click="ClearFiltersSortingButton_Click"/>
+                <StackPanel Orientation="Vertical" Margin="2">
+                    <TextBlock Text="Sort by"/>
+                    <ComboBox SelectedValue="{Binding SelectedSortCriterion}">
+                        <ComboBoxItem Content="Title"/>
+                        <ComboBoxItem Content="Author"/>
+                        <ComboBoxItem Content="Pages"/>
+                        <ComboBoxItem Content="Rating"/>
+                    </ComboBox>
+                </StackPanel>
 
-            <StackPanel Orientation="Vertical"  Margin="2">
-                <TextBlock Text="Rating" FontSize="16"/>
-                <ComboBox>
-                    <ComboBoxItem>Unrated</ComboBoxItem>
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
-                    <ComboBoxItem>5</ComboBoxItem>
-                </ComboBox>
+                <StackPanel Orientation="Vertical" Margin="2">
+                    <TextBlock Text="Filter by Reading Status"/>
+                    <ComboBox SelectedValue="{Binding SelectedReadingStatusFilterCriterion}">
+                        <ComboBoxItem Content="NotStarted"/>
+                        <ComboBoxItem Content="InProgress"/>
+                        <ComboBoxItem Content="Read"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="2">
+                    <TextBlock Text="Filter by Rating"/>
+                    <ComboBox SelectedValue="{Binding SelectedRatingFilterCriterion}">
+                        <ComboBoxItem Content="0"/>
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
-            
+            <StackPanel>
+                <ui:AutoSuggestBox Text="{Binding Query, Mode=TwoWay}" QueryIcon="Find" QuerySubmitted="AutoSuggestBox_QuerySubmitted"/>
+            </StackPanel>
         </StackPanel>
 
-
         <Border Grid.Row="1">
-            <TabControl>
-                <TabItem Header="Всі">
-                    <ListBox ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
-                                    <TextBlock Text="{Binding Author}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </TabItem>
-
-                <TabItem Header="У процесі">
-                    <ListBox ItemsSource="{Binding InProgressBooks}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
-                                    <TextBlock Text="{Binding Author}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </TabItem>
-
-                <TabItem Header="Прочитано">
-                    <ListBox ItemsSource="{Binding ReadBooks}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
-                                    <TextBlock Text="{Binding Author}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </TabItem>
-
-            </TabControl>
+            <ListBox ItemsSource="{Binding FilteredCollection}" SelectedItem="{Binding SelectedBook}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Title}" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Author}"/>
+                            <TextBlock Text="{Binding PagesCount}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource RatingVisibleForReadBooksStyle}"  Text="{Binding Stats.Rating}"/>
+                                <TextBlock Text=""/>
+                                <TextBlock Style="{StaticResource RatingVisibleForReadBooksStyle}" Text="★"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Border>
-        
-        <Border Grid.Column="1" Margin="5" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True">
+
+        <Border Grid.Column="1" Margin="5" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True" Style="{StaticResource BorderVisibilityStyle}">
             <ScrollViewer>
-            <StackPanel DataContext="{Binding SelectedBook}">
-                <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="16"/>
-
-                <DockPanel>
-                    <TextBlock Text="Автор: "/>
-                    <TextBlock Text="{Binding Author}"/>
-                </DockPanel>
-
-                <DockPanel>
-                    <Border Width="150" Height="200">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#B6BBC4" Offset="0.0"/>
-                                <GradientStop Color="#31304D" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <Image Source="{Binding CoverImageUrl}"/>
-                        <Border.Clip>
-                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,200"/>
-                        </Border.Clip>
-                    </Border>
-                </DockPanel>
-
-                
-                <DockPanel>
-                    <TextBlock Text="Опис: "/>
-                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
-                </DockPanel>
-
-                <DockPanel>
-                    <TextBlock Text="Кількість сторінок: "/>
-                    <TextBlock Text="{Binding PagesCount}"/>
-                </DockPanel>
-
-                <DockPanel>
-                    <TextBlock Text="Статус: "/>
-                    <TextBlock Text="{Binding ReadingStatus}"/>
-                </DockPanel>
-
-                <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                    <TextBlock Text="Цитата: "/>
-                    <TextBox Text="{Binding Quote}"/>
-                </DockPanel>
-
-                <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                    <TextBlock Text="Таймер: "/>
-                    <TextBlock Text="{Binding ReadingTimer}"/>
-                    <Button Name="StartTimerButton" Content="Почати" Click="StartTimerButton_Click"/>
-                    <Button Name="StopTimerButton" Content="Зупинити" Click="StopTimerButton_Click"/>
-                </DockPanel>
-
-                <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                    <ProgressBar Value="{Binding Stats.Progress}" Minimum="0" Maximum="100"/>
-                </DockPanel>
-                
-                <StackPanel Orientation="Horizontal"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Center">
-                    <Button Content="Видалити"
-                FontSize="15"
-                Name="DeleteButton"
-                Height="30" 
-                Width="80"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
-                Click="DeleteButton_Click"/>
-                    <Button Content="Читати"
-                FontSize="15"
-                Name="ReadButton"
-                Height="30" 
-                Width="80"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
-                Click="ReadButton_Click"/>
-                </StackPanel>
-                
-                <TabControl >
-                    <TabItem Header="Усі сесії читання">
-                        <ListBox ItemsSource="{Binding Stats.ReadingSessions}" SelectedItem="{Binding SelectedSession}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <ListBox.ItemTemplate>
+                <StackPanel>
+                    <StackPanel Style="{StaticResource RatingStyle}" HorizontalAlignment="Center">
+                        <ItemsControl ItemsSource="{Binding StarRatings, Mode=TwoWay}">
+                            <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding ReadingTime}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
-                                        <TextBlock Text="{Binding PagesRead}" FontSize="16" FontWeight="DemiBold" Background="{x:Null}"/>
-                                    </StackPanel>
+                                    <Button Content="★"
+                                            FontSize="30"
+                                            Command="{Binding DataContext.RateCommand, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay}"
+                                            CommandParameter="{Binding Rating, Mode=TwoWay}">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsFilled, Mode=TwoWay}" Value="True">
+                                                        <Setter Property="Foreground" Value="Gold"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </TabItem>
-                    <TabItem Header="Цитати">
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        
+                    </StackPanel>
+                    <Button Content="✏️"
+                            Name="EditButton"
+                            Click="EditButton_Click"
+                            Command="{Binding EditPropertyCommand}"/>
+                    
+                    <StackPanel DataContext="{Binding SelectedBook}">
+                        <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="30"/>
 
-                    </TabItem>
-                </TabControl>
+                        <DockPanel HorizontalAlignment="Center">
+                            <TextBlock Text="by"/>
+                            <TextBlock Text="{Binding Author}"/>
+                            
+                        </DockPanel>
 
-            </StackPanel>
+                        <DockPanel>
+                            <Border Width="150" Height="200">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                        <GradientStop Color="#B6BBC4" Offset="0.0"/>
+                                        <GradientStop Color="#31304D" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Image Source="{Binding CoverImageUrl}"/>
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,200"/>
+                                </Border.Clip>
+                            </Border>
+                        </DockPanel>
+
+                        <DockPanel>
+                            <TextBlock Text="📖 "/>
+                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+                            
+                        </DockPanel>
+
+                        <DockPanel>
+                            <TextBlock Text="📃 "/>
+                            <TextBlock Text="{Binding PagesCount}"/>
+                            <TextBlock Text=" pages"/>
+                        </DockPanel>
+
+                        <DockPanel>
+                            <TextBlock Text="Status: "/>
+                            <TextBlock Text="{Binding ReadingStatus}"/>
+                        </DockPanel>
+
+
+
+                        
+
+                        <DockPanel Style="{StaticResource DockPanelStatusStyle}">
+                            <ProgressBar Value="{Binding Stats.Progress}" Minimum="0" Maximum="100" Height="30"/>
+                        </DockPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Center">
+                            
+                            <Button Content="Delete"
+                                    Name="DeleteButton"
+                                    Height="30" 
+                                    Width="80"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Left"
+                                    Command="{Binding DeleteBookCommand}"
+                                    Click="DeleteButton_Click"/>
+
+                            <Button Content="Read"
+                                    Name="ReadButton"
+                                    Height="30" 
+                                    Width="80"
+                                    VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Left"
+                                    Command="{Binding StartReadingSessionCommand}"
+                                    Click="ReadButton_Click"/>
+
+                        </StackPanel>
+
+                        <TabControl>
+                            <TabItem Header="All Reading Sessions">
+                                
+                                <StackPanel>
+                                    <DockPanel Style="{StaticResource DockPanelStatusStyle}">
+                                        <TextBlock Text="⏲️ Timer " Margin="5"/>
+                                        <TextBlock Text="{Binding ReadingTimer}"/>
+                                        <Button Name="StartTimerButton" 
+                                                Content="▶️" 
+                                                Command="{Binding StartReadingSessionCommand}"
+                                                Click="StartTimerButton_Click"
+                                                Margin="5"/>
+                                        <Button Name="StopTimerButton" 
+                                                Content="⏹️" 
+                                                Command="{Binding StopReadingSessionCommand}"
+                                                Click="StopTimerButton_Click"
+                                                Margin="5"/>
+                                    </DockPanel>
+                                    <ListBox ItemsSource="{Binding Stats.ReadingSessions}" SelectedItem="{Binding SelectedSession}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                    <TextBlock Text="{Binding ReadingTime, StringFormat=\{0:hh\\:mm\\:ss\}}" FontWeight="DemiBold"/>
+                                                <TextBlock Text="{Binding PagesRead}" FontWeight="DemiBold"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                                
+                                
+                            </TabItem>
+                            
+                            <TabItem Header="Notes">
+                                <StackPanel>
+                                    
+                                    <DockPanel Style="{StaticResource DockPanelStatusStyle}">
+                                        <TextBlock Text="✒️ " Margin="5"/>
+                                        <TextBox Name="NoteTextBox" Text="{Binding Note}" Margin="5"/>
+                                        <Button Name="AddNoteButton" Content="Add Note" Click="AddNoteButton_Click" Command="{Binding AddNoteCommand}" Margin="5"/>
+                                    </DockPanel>
+                                    
+                                    <ListBox ItemsSource="{Binding Stats.Notes}">
+                                        
+                                    </ListBox>
+                                </StackPanel>
+                                
+                                
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </StackPanel>
             </ScrollViewer>
         </Border>
-        
     </Grid>
-    
 </UserControl>

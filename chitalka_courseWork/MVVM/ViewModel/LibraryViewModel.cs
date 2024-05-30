@@ -6,9 +6,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Windows;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Windows.Data;
 
 namespace chitalka_courseWork.MVVM.ViewModel
 {
@@ -20,21 +19,26 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private RelayCommand _startReadingSessionCommand;
         [ObservableProperty]
         private RelayCommand _stopReadingSessionCommand;
+        [ObservableProperty]
+        private RelayCommand _sortCommand;
+        [ObservableProperty]
+        private RelayCommand _clearFiltersSortingCommand;
+        [ObservableProperty]
+        private RelayCommand _filterByRatingCommand;
+        [ObservableProperty]
+        private RelayCommand _filterByReadingStatusCommand;
+        [ObservableProperty]
+        private RelayCommand _addNoteCommand;
+        [ObservableProperty]
+        private RelayCommand _editModeCommand;
 
         [ObservableProperty]
         private Book? _selectedBook;
-
         [ObservableProperty]
         private ReadingSession? _selectedSession;
 
         [ObservableProperty]
         private ObservableCollection<Book> _books;
-
-        [ObservableProperty]
-        private ObservableCollection<Book> _inProgressBooks;
-
-        [ObservableProperty]
-        private ObservableCollection<Book> _readBooks;
 
         [ObservableProperty]
         private int _selectedBookProgress;
@@ -54,33 +58,73 @@ namespace chitalka_courseWork.MVVM.ViewModel
         [ObservableProperty]
         private int _selectedRating;
 
+        [ObservableProperty]
+        private ObservableCollection<Book> _filteredCollection;
+
+        [ObservableProperty]
+        private string _selectedSortCriterion;
+        [ObservableProperty]
+        private string _selectedReadingStatusFilterCriterion;
+        [ObservableProperty]
+        private string _selectedRatingFilterCriterion;
+
+        [ObservableProperty]
+        private string _query;
+        [ObservableProperty]
+        private string _noteContent;
+
         private readonly string booksDataFilePath = "C:\\Users\\Liliia\\source\\repos\\ogurtsy_new\\chitalka_courseWork\\DB\\data.json";
 
         public LibraryViewModel()
         {
             LoadBooksData();
-            FilterBooks();
             Books.CollectionChanged += Books_CollectionChanged;
+            FilteredCollection = new ObservableCollection<Book>(Books);
 
             DeleteBookCommand = new RelayCommand(DeleteBook);
             StartReadingSessionCommand = new RelayCommand(StartReadingSession);
             StopReadingSessionCommand = new RelayCommand(StopReadingSession);
+            SortCommand = new RelayCommand(SortBooks);
+            ClearFiltersSortingCommand = new RelayCommand(ClearFilters);
+            FilterByReadingStatusCommand = new RelayCommand(FilterBooksByReadingStatus);
+            FilterByRatingCommand = new RelayCommand(FilterBooksByRating);
+            AddNoteCommand = new RelayCommand(AddNote);
+            EditModeCommand = new RelayCommand(EditProperty);
 
             foreach (Book book in Books)
             {
                 book.Stats.UpdateProgress();
             }
 
-            StarRatings = new ObservableCollection<StarRating>
-            {
-                new StarRating { Rating = 1 },
-                new StarRating { Rating = 2 },
-                new StarRating { Rating = 3 },
-                new StarRating { Rating = 4 },
-                new StarRating { Rating = 5 }
-            };
+            StarRatings =
+            [
+                new() { Rating = 1 },
+                new() { Rating = 2 },
+                new() { Rating = 3 },
+                new() { Rating = 4 },
+                new() { Rating = 5 }
+            ]; 
             RateCommand = new RelayCommand<int>(Rate);
         }
+
+        private void AddNote()
+        {
+            if (NoteContent != null && SelectedBook != null)
+            {
+                SelectedBook.Stats.Notes.Add(NoteContent);
+                UpdateBooksCollection();
+            }
+            else
+                MessageBox.Show("Note is empty!");
+            
+        }
+
+        public void ClearFilters()
+        {
+            UpdateBooksCollection();
+            FilteredCollection = new ObservableCollection<Book>(Books);
+        }
+
 
         private void LoadBooksData()
         {
@@ -98,22 +142,38 @@ namespace chitalka_courseWork.MVVM.ViewModel
                         if (e.PropertyName == nameof(Statistics.Progress))
                         {
                             book.UpdateReadingStatus();
-                            FilterBooks();
+                        }
+                    };
+                    book.Stats.PropertyChanged += (s, e) =>
+                    {
+                        if (e.PropertyName == nameof(Statistics.Rating))
+                        {
+                            UpdateBooksCollection();
+                            FilteredCollection = new ObservableCollection<Book>(Books);
                         }
                     };
                 }
             }
             else
             {
-                Books = new ObservableCollection<Book>();
+                Books = [];
             }
         }
 
+        partial void OnQueryChanged(string value)
+        {
+            SearchByQueryInBooklist(); 
+        }
         private void Books_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             UpdateBooksCollection();
-            LoadBooksData();
-            FilterBooks();
+            FilteredCollection = new ObservableCollection<Book>(Books);
+        }
+
+        partial void OnBooksChanged(ObservableCollection<Book> value)
+        {
+            UpdateBooksCollection();
+            FilteredCollection = new ObservableCollection<Book>(Books);
         }
 
         public void UpdateBooksCollection()
@@ -121,28 +181,147 @@ namespace chitalka_courseWork.MVVM.ViewModel
             string json = JsonConvert.SerializeObject(Books, Formatting.Indented);
             File.WriteAllText(booksDataFilePath, json);
         }
+        
 
-        public void FilterBooks()
+        public void FilterBooksByReadingStatus()
         {
-            InProgressBooks = new ObservableCollection<Book>(Books.Where(book => book.ReadingStatus == ReadingStatus.InProgress));
-            ReadBooks = new ObservableCollection<Book>(Books.Where(book => book.ReadingStatus == ReadingStatus.Read));
+            if (SelectedReadingStatusFilterCriterion != null)
+            {
+                var filteredBooks = Books.AsEnumerable();
+
+                if (SelectedReadingStatusFilterCriterion.Contains("NotStarted"))
+                    filteredBooks = filteredBooks.Where(book => book.ReadingStatus == ReadingStatus.NotStarted);
+
+                else if (SelectedReadingStatusFilterCriterion.Contains("InProgress"))
+                    filteredBooks = filteredBooks.Where(book => book.ReadingStatus == ReadingStatus.InProgress);
+
+                else
+                    filteredBooks = filteredBooks.Where(book => book.ReadingStatus == ReadingStatus.Read);
+
+                FilteredCollection = new ObservableCollection<Book>(filteredBooks);
+            }
+
+        }
+
+        public void SearchByQueryInBooklist()
+        {
+            var filteredBooks = Books.AsEnumerable();
+            filteredBooks = filteredBooks.Where(book => (book.Title.Contains(Query, StringComparison.CurrentCultureIgnoreCase) || book.Author.Contains(Query, StringComparison.CurrentCultureIgnoreCase)));
+            FilteredCollection = new ObservableCollection<Book>(filteredBooks);
+        }
+
+        public void FilterBooksByRating()
+        {
+            if (SelectedRatingFilterCriterion != null)
+            {
+                var filteredBooks = Books.AsEnumerable();
+
+                if (SelectedRatingFilterCriterion.Contains("1"))
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 1);
+
+                else if (SelectedRatingFilterCriterion.Contains("2"))
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 2);
+
+                else if (SelectedRatingFilterCriterion.Contains("3"))
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 3);
+
+                else if (SelectedRatingFilterCriterion.Contains("4"))
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 4);
+
+                else if (SelectedRatingFilterCriterion.Contains("5"))
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 5);
+                
+                else 
+                    filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 0);
+
+                FilteredCollection = new ObservableCollection<Book>(filteredBooks);
+            }
+
+        }
+
+        partial void OnSelectedSortCriterionChanged(string value)
+        {
+            SortBooks();
+        }
+
+        partial void OnSelectedRatingFilterCriterionChanged(string value)
+        {
+            FilterBooksByRating();
+        }
+
+        partial void OnSelectedReadingStatusFilterCriterionChanged(string value)
+        {
+            FilterBooksByReadingStatus();
+        }
+
+        public void SortBooks()
+        {
+            if (SelectedSortCriterion != null)
+            {
+                var sortedBooks = FilteredCollection.AsEnumerable();
+
+                if (SelectedSortCriterion.Contains("Title"))
+                    sortedBooks = sortedBooks.OrderBy(book => book.Title);
+
+                else if (SelectedSortCriterion.Contains("Author"))
+                    sortedBooks = sortedBooks.OrderBy(book => book.Author);
+
+                else if (SelectedSortCriterion.Contains("Pages"))
+                    sortedBooks = sortedBooks.OrderBy(book => book.PagesCount);
+
+                else
+                    sortedBooks = sortedBooks.OrderBy(book => book.Stats.Rating);
+
+                FilteredCollection = new ObservableCollection<Book>(sortedBooks);
+               
+            }
+            
         }
 
         public void Rate(int rating)
         {
-            SelectedRating = rating;
-            foreach (var star in StarRatings)
+            if (SelectedBook != null)
             {
-                star.IsFilled = star.Rating <= rating;
+                SelectedRating = rating;
+                foreach (var star in StarRatings)
+                    star.IsFilled = star.Rating <= rating;
+
+                if (SelectedBook != null)
+                    SelectedBook.Stats.Rating = rating;
+
+                OnPropertyChanged(nameof(SelectedBook.Stats.Rating));
             }
+
         }
+
+        private void EditProperty() 
+        {
+            var editingDialog = new EditingBookDialog();
+
+            if (editingDialog.ShowDialog() == true)
+            {
+                
+            }
+                
+
+            UpdateBooksCollection();
+        }
+
+
+
+        partial void OnSelectedBookChanged(Book? value)
+        {
+            UpdateBooksCollection();
+            UpdateStarRatings();
+        }
+
         public void DeleteBook()
         {
             if (SelectedBook != null)
             {
                 Books.Remove(SelectedBook);
+                FilteredCollection.Remove(SelectedBook);
                 SelectedBook = null;
-                UpdateBooksCollection();
             }
             else
             {
@@ -181,7 +360,6 @@ namespace chitalka_courseWork.MVVM.ViewModel
                     currentSelectedBook.Stats.ReadingSessions.Add(ReadingSession);
                     currentSelectedBook.Stats.UpdateProgress();
 
-
                     UpdateBooksCollection();
 
                     timeStart = DateTime.MinValue;
@@ -206,6 +384,19 @@ namespace chitalka_courseWork.MVVM.ViewModel
                 pagesRead = inputDialog.PagesRead;
 
             return pagesRead;
+        }
+
+
+
+        private void UpdateStarRatings()
+        {
+            if (SelectedBook != null)
+            {
+                foreach (var star in StarRatings)
+                {
+                    star.IsFilled = star.Rating <= SelectedBook.Stats.Rating;
+                }
+            }
         }
     }
 }

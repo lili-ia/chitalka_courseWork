@@ -65,15 +65,5 @@ namespace chitalka_courseWork
             
         }
 
-        public override string ToString() => $"Title: '{Title}'\nAuthor: {Author}\nDescription: {Description}\n";
-        public override int GetHashCode() => HashCode.Combine(Title, Author);
-        public override bool Equals(object obj)
-        {
-            if (obj is Book book)
-            {
-                return Title == book.Title && Author == book.Author;
-            }
-            return false;
-        }
     }
 }

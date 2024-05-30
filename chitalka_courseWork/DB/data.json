@@ -1,34 +1,39 @@
 [
   {
-    "Title": "The Great Gatsby",
-    "Description": "Reproduction of the original. The publishing house Megali specialises in reproducing historical works in large print to make reading easier for people with impaired vision.",
-    "Author": "F. Scott Fitzgerald",
-    "PagesCount": 249,
+    "Title": "Мовчання ягнят",
+    "Description": "Убивця і колишній судовий психіатр Ганнібал Лектер усе ще перебуває в тюремній психіатричній лікарні. Цього разу до нього по допомогу у встановленні особистості чергового серійного злочинця звертається молода стажистка ФБР Кларіс Старлінг. І поки між ними зав’язуються непрості стосунки, маніяк на прізвисько Баффало Білл викрадає доньку сенатора. У ФБР є три дні, щоб знайти дівчину, а для Ганнібала це шанс на укладання вигідної угоди. Яким він неодмінно скористається…",
+    "Author": "Томас Гарріс",
+    "PagesCount": 394,
     "ReadingStatus": 2,
-    "CoverImageUrl": "http://books.google.com/books/content?id=1PHaEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "CoverImageUrl": "http://books.google.com/books/content?id=0tzYEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
-      "TotalPageCount": 249,
+      "TotalPageCount": 394,
       "ReadingSessions": [
         {
-          "PagesRead": 20,
-          "ReadingTime": "00:00:01.6155272",
+          "PagesRead": 50,
+          "ReadingTime": "00:00:03.3892792",
+          "ReadingDate": "2024-05-27"
+        },
+        {
+          "PagesRead": 100,
+          "ReadingTime": "00:00:01.4083642",
           "ReadingDate": "2024-05-27"
         },
         {
           "PagesRead": 200,
-          "ReadingTime": "00:00:01.5547010",
+          "ReadingTime": "00:00:01.4844679",
           "ReadingDate": "2024-05-27"
         },
         {
-          "PagesRead": 29,
-          "ReadingTime": "00:00:00.8403072",
+          "PagesRead": 50,
+          "ReadingTime": "00:00:00.7999403",
           "ReadingDate": "2024-05-27"
         }
       ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 100,
-      "PagesRead": 249
+      "Notes": [],
+      "Rating": 4,
+      "Progress": 101,
+      "PagesRead": 400
     }
   },
   {
@@ -36,90 +41,44 @@
     "Description": "Патрік Бейтмен — привабливий, доглянутий та ерудований молодий чоловік. Він успішний інвестиційний банкір, який працює на Волл-стріт і має розкішну квартиру. Патрік стежить за модою, попмузикою та полюбляє пліткувати зі своїми друзями в елітних ресторанах Мангеттена. Його життя — справжня американська мрія. Однак це лише вдень. Уночі сором’язливий і трохи боягузливий чоловік перетворюється на звіра, який залюбки мучить людей та вбиває їх у вкрай збочені способи. Як далеко заведе його власне шаленство? І чи насмілиться хтось його зупинити?",
     "Author": "Брет Істон Елліс",
     "PagesCount": 510,
-    "ReadingStatus": 0,
+    "ReadingStatus": 1,
     "CoverImageUrl": "http://books.google.com/books/content?id=3QDPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
       "TotalPageCount": 510,
-      "ReadingSessions": [],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 0
-    }
-  },
-  {
-    "Title": "Мовчання ягнят",
-    "Description": "Убивця і колишній судовий психіатр Ганнібал Лектер усе ще перебуває в тюремній психіатричній лікарні. Цього разу до нього по допомогу у встановленні особистості чергового серійного злочинця звертається молода стажистка ФБР Кларіс Старлінг. І поки між ними зав’язуються непрості стосунки, маніяк на прізвисько Баффало Білл викрадає доньку сенатора. У ФБР є три дні, щоб знайти дівчину, а для Ганнібала це шанс на укладання вигідної угоди. Яким він неодмінно скористається…",
-    "Author": "Томас Гарріс",
-    "PagesCount": 394,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=0tzYEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "TotalPageCount": 394,
-      "ReadingSessions": [],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 0,
-      "PagesRead": 0
-    }
-  },
-  {
-    "Title": "Я - легенда",
-    "Description": "Він міг стати легендою для людей. Якби люди існували. Він був єдиний, на кого не подіяв страшний вірус, хто не перетворився на вампіра. Зі свого будинку, що нагадує неприступну фортецю, він виходить, тільки щоб убивати. Тих, через кого втратив кохану дружину й улюблену донечку — усе своє життя. Він пізно розуміє, що сонце вже давно сходить над іншим світом…",
-    "Author": "Річард Метісон",
-    "PagesCount": 168,
-    "ReadingStatus": 1,
-    "CoverImageUrl": "http://books.google.com/books/content?id=jw0CEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "TotalPageCount": 168,
       "ReadingSessions": [
         {
-          "PagesRead": 35,
-          "ReadingTime": "00:00:00.5120318",
-          "ReadingDate": "2024-05-27"
+          "PagesRead": 89,
+          "ReadingTime": "00:00:02.0051981",
+          "ReadingDate": "2024-05-28"
         },
         {
-          "PagesRead": 21,
-          "ReadingTime": "00:00:00.2405101",
-          "ReadingDate": "2024-05-27"
+          "PagesRead": 25,
+          "ReadingTime": "00:00:01.0345104",
+          "ReadingDate": "2024-05-28"
         },
         {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:00.2438569",
-          "ReadingDate": "2024-05-27"
+          "PagesRead": 100,
+          "ReadingTime": "00:00:00.9377517",
+          "ReadingDate": "2024-05-28"
         }
       ],
-      "Quotes": [],
-      "Rating": 0,
-      "Progress": 39,
-      "PagesRead": 66
-    }
-  },
-  {
-    "Title": "Мисливець на відьом",
-    "Description": "Чужі гріхи можна відпустити. Свої — спокутувати кров’ю. Але чиєю?.. За сюжетами трилерів відомого письменника Роґера Копонена відбувається серія містичних убивств. Знайдено мертвою дружину письменника в розкішній чорній сукні, на її обличчі застигла моторошна посмішка. Дівчина-потопельниця під льодом, чоловік, забитий до смерті камінням, та інші жертви: хтось загрався в кривавого інквізитора, головного героя роману Роґера «Полювання на відьом». За розслідування береться слідча Єссіка Ніємі. І що глибше вона занурюється у справу, то більше розуміє: вбивця не один, тут діє ціла зграя оскаженілих демонів у людській подобі. Вони завжди на крок попереду від Єссіки. Та коли світло проллється на темні закутки життя самої слідчої, жінка усвідомить: вона полює не лише на злочинців. А й на демонів із власного минулого...",
-    "Author": "Макс Сеек",
-    "PagesCount": 393,
-    "ReadingStatus": 2,
-    "CoverImageUrl": "http://books.google.com/books/content?id=UTGxEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "Stats": {
-      "TotalPageCount": 393,
-      "ReadingSessions": [
-        {
-          "PagesRead": 389,
-          "ReadingTime": "00:00:00.6038787",
-          "ReadingDate": "2024-05-27"
-        },
-        {
-          "PagesRead": 10,
-          "ReadingTime": "00:00:00.5136649",
-          "ReadingDate": "2024-05-27"
-        }
+      "Notes": [
+        "hdhd",
+        "ababababab",
+        "djjdj",
+        "djjd",
+        "uuauuususussus",
+        "uuauuususussus",
+        "ddd",
+        "dkdskkjdjks",
+        "fdjkdfkjkfjdkjf",
+        "ffdd",
+        "aaaa",
+        "ddff"
       ],
-      "Quotes": [],
       "Rating": 0,
-      "Progress": 101,
-      "PagesRead": 399
+      "Progress": 41,
+      "PagesRead": 214
     }
   },
   {
@@ -127,28 +86,50 @@
     "Description": "Чуттєва та зворушлива історія кохання. Кохання, що долає роки і кілометри, обітниці і закони! Бестселер «Ті, що співають у терні» австралійської письменниці Коллін Мак-Каллоу — справжня перлина світової романтичної прози. Сумарний наклад книжки — 10 млн примірників, а серіал за мотивами цього роману вже кілька десятків років посідає друге місце у рейтингу найпопулярніших кінотворів усіх часів та народів. Коли ж на зламі тисячоліть австралійці обирали Національний живий скарб, ним стала велика жінка і велика письменниця Коллін Мак-Каллоу… Єдина дівчинка у багатодітній родині працьовитих австралійських фермерів, Меґґі змалечку почувається зайвою. Лише одна людина щиро співчуває її дитячим бідам — католицький священник Ральф де Брікассар. У самотньому дівочому серці оселяється любов, здатна кинути виклик самим небесам… Як маленька пташина, що співає у терні свою першу й останню пісню, Меґґі нестиме своє кохання до Ральфа крізь життя, страждання, розлуки і втрати. Вкраде у Бога найдорожче. І зазнає поразки, коли її суперниками стануть не чернечі обітниці й самозречення, а людські амбіції й марнославство. Та від троянд залишається попіл, пташиний спів стихає — лише кохання продовжує жити…",
     "Author": "Коллін Мак-Каллоу",
     "PagesCount": 745,
-    "ReadingStatus": 0,
+    "ReadingStatus": 2,
     "CoverImageUrl": "http://books.google.com/books/content?id=5u3uEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     "Stats": {
       "TotalPageCount": 745,
+      "ReadingSessions": [
+        {
+          "PagesRead": 745,
+          "ReadingTime": "00:00:01.0825081",
+          "ReadingDate": "2024-05-28"
+        }
+      ],
+      "Notes": [],
+      "Rating": 5,
+      "Progress": 100,
+      "PagesRead": 745
+    }
+  },
+  {
+    "Title": "Osamu Dazai's No Longer Human",
+    "Description": "\"I've led a life full of shame. Human beings are a complete mystery to me.\" This manga version of novelist Osamu Dazai's masterpiece NO LONGER HUMAN—the #2 bestselling novel of all time in Japan—tells the story of Yozo Oba, a young man growing up in Japan in the immediate aftermath of World War II, who finds himself caught between the disintegration of the traditions of his aristocratic provincial family and the impact of the new postwar world. Oba is tormented by a failure to find any value in himself or in human relationships, despite being surrounded by women who love him. He creates the persona of a buffoon who mocks himself while entertaining others. But inside he is tortured, and as he moves from childhood to adulthood he becomes addicted to sex and alcohol. Largely autobiographical, No Longer Human explores Dazai's own sense of failure and alienation which drove him to self-destruct with alcohol and numerous suicide attempts. Osamu Dazai (1909—1948) is Japan's second most popular novelist (after Soseki), and his works are seeing a huge surge in popularity among young people worldwide thanks to the success of the recent manga, anime and film series Bungo Stray Dogs, whose protagonist, a detective called Osamu Dazai, has similar character traits to Yozo Oba. Fans of manga and anime are turning to the original No Longer Human novel, whose themes of alienation from society and an inability to reconcile social appearances with inner self—told with great wit, irony and pathos—strike a deep chord among readers today. **Recommended for readers ages 16+ due to mature themes and graphic content**",
+    "Author": "Osamu Dazai",
+    "PagesCount": 196,
+    "ReadingStatus": 0,
+    "CoverImageUrl": "http://books.google.com/books/content?id=Wt61EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "Stats": {
+      "TotalPageCount": 196,
       "ReadingSessions": [],
-      "Quotes": [],
+      "Notes": [],
       "Rating": 0,
       "Progress": 0,
       "PagesRead": 0
     }
   },
   {
-    "Title": "Сходження Ганнібала",
-    "Description": "Ганнібал Лектер — соціопат, геній, убивця. Він не народився маніяком: таким його зробило життя, точніше — смерть. Це історія його народження і становлення. У радянський сиротинець приїздить відомий художник, який хоче забрати звідти свого племінника. Хлопець дивом уцілів у жорнах війни, втративши батьків і сестру. Тепер Ганнібал житиме у Франції, з родиною дядька. Здається, що нарешті він отримав жаданий спокій і любов. Але в душі його живуть демони, їх неможливо відпустити — тільки розтрощити, поглинути, перетравити…",
-    "Author": "Томас Гарріс",
-    "PagesCount": 244,
+    "Title": "title",
+    "Description": "",
+    "Author": "author",
+    "PagesCount": 100,
     "ReadingStatus": 0,
-    "CoverImageUrl": "http://books.google.com/books/content?id=ZubnEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "CoverImageUrl": "",
     "Stats": {
-      "TotalPageCount": 244,
+      "TotalPageCount": 100,
       "ReadingSessions": [],
-      "Quotes": [],
+      "Notes": [],
       "Rating": 0,
       "Progress": 0,
       "PagesRead": 0

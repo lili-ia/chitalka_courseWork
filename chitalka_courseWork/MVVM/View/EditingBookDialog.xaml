@@ -1,0 +1,26 @@
+﻿<Window x:Class="chitalka_courseWork.MVVM.View.EditingBookDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View"
+        mc:Ignorable="d"
+        Title="EditingBookDialog" Height="450" Width="800">
+    <Grid Background="#161A30">
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="✏️ Select property to edit it"/>
+            <ComboBox SelectedValue="{Binding SelectedEditingProperty}">
+                <ComboBoxItem Content="Title"/>
+                <ComboBoxItem Content="Author"/>
+                <ComboBoxItem Content="Description"/>
+                <ComboBoxItem Content="PagesCount"/>
+            </ComboBox>
+            <TextBlock Text="🖇️ Enter new value of the property"/>
+            <TextBox Name="NewValueTextBox"/>
+            <Button Content="Save"
+                    Name="SaveButton"
+                    Click="SaveButton_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

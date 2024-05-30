@@ -23,4 +23,9 @@ public partial class SearchView : UserControl
     {
         viewModel.AddBookCommand.Execute(null);
     }
+
+    private void AddManuallyButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        viewModel.AddBookManuallyCommand.Execute(null);
+    }
 }

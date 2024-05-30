@@ -1,15 +1,39 @@
 ﻿<UserControl x:Class="chitalka_courseWork.MVVM.View.SearchView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:chitalka_courseWork.MVVM.ViewModel"
-             xmlns:local="clr-namespace:chitalka_courseWork.MVVM.View" xmlns:ui="http://schemas.modernwpf.com/2019"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="800"
              d:DataContext="{d:DesignInstance Type=viewModel:SearchViewModel}"
              >
-
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="BorderVisibilityStyle" TargetType="Border">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedBook, TargetNullValue={x:Null}}" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="Read">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="InProgress">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedBook.ReadingStatus}" Value="NotStarted">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
+    
+    
     <Grid>
         
         <Grid.ColumnDefinitions>
@@ -30,10 +54,15 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+                <TextBlock Text="Didn't find what you were looking for?"/>
+                <Button Content="Add Manually"
+                        Name="AddManuallyButton"
+                        Click="AddManuallyButton_Click"/>
             </StackPanel>
+            
         </Border>
 
-        <Border Grid.Column="1" Margin="5">
+        <Border Grid.Column="1" Margin="5" Style="{StaticResource BorderVisibilityStyle}">
             <ScrollViewer>
             <StackPanel DataContext="{Binding SelectedBook}">
                 <TextBlock Text="{Binding Title}" TextAlignment="Center" FontSize="20"/>
