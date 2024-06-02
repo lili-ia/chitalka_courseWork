@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace chitalka_courseWork.MVVM.Model
 {
@@ -27,7 +26,6 @@ namespace chitalka_courseWork.MVVM.Model
         {
             ReadingSessions = [];
             Notes = [];
-            ReadingSessions.CollectionChanged += ReadingSessions_CollectionChanged;
         }
 
         public void SetTotalPageCount(int pageCount)
@@ -36,10 +34,11 @@ namespace chitalka_courseWork.MVVM.Model
             UpdateProgress();
         }
 
-        private void ReadingSessions_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        partial void OnReadingSessionsChanged(ObservableCollection<ReadingSession> value)
         {
             UpdateProgress();
         }
+
 
 
         public void UpdateProgress()
@@ -53,5 +52,7 @@ namespace chitalka_courseWork.MVVM.Model
             
             OnPropertyChanged(nameof(Progress));
         }
+
+
     }
 }

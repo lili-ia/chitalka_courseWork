@@ -83,7 +83,7 @@
 
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Image Source="{Binding CoverImageUrl}"/>
+                        <Image Source="{Binding CoverImageUrl}" Stretch="UniformToFill"/>
                         <Border.Clip>
                             <RectangleGeometry RadiusX="10"
                            RadiusY="10"

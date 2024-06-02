@@ -1,5 +1,4 @@
-﻿using chitalka_courseWork.MVVM.Model;
-using chitalka_courseWork.MVVM.ViewModel;
+﻿using chitalka_courseWork.MVVM.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,9 +6,8 @@ namespace chitalka_courseWork.MVVM.View;
 
 public partial class LibraryView : UserControl
 {
-    private LibraryViewModel viewModel;
+    private readonly LibraryViewModel viewModel;
 
-    
     public LibraryView(LibraryViewModel libraryVM)
     {
         viewModel = libraryVM;
@@ -17,12 +15,12 @@ public partial class LibraryView : UserControl
         InitializeComponent();
     }
 
-    private void DeleteButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    private void DeleteButton_Click(object sender, RoutedEventArgs e)
     {
         viewModel.DeleteBookCommand.Execute(null);
     }
 
-    private void ReadButton_Click(object sender, System.Windows.RoutedEventArgs e)
+    private void ReadButton_Click(object sender, RoutedEventArgs e)
     {
         if (viewModel.SelectedBook != null) 
         {

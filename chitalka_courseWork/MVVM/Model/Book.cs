@@ -1,7 +1,5 @@
 ﻿using chitalka_courseWork.MVVM.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace chitalka_courseWork
 {
@@ -56,13 +54,22 @@ namespace chitalka_courseWork
             }
         }
 
+
         public void UpdateReadingStatus()
         {
             if (Stats.Progress >= 100)
-            {
                 ReadingStatus = ReadingStatus.Read;
-            }
             
+            if (ReadingStatus == ReadingStatus.Read && Stats.Progress < 100)
+                ReadingStatus = ReadingStatus.InProgress;
+        }
+
+        partial void OnPagesCountChanged(int value)
+        {
+            if (Stats != null)
+                Stats.UpdateProgress();
+            else
+                Stats = new Statistics();
         }
 
     }

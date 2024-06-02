@@ -12,10 +12,8 @@ public class BookSearch
         Book book = null;
         List<Book> searchResults = [];
 
-
         string encodedTitle = Uri.EscapeDataString(title);
         string url = $"https://www.googleapis.com/books/v1/volumes?q={encodedTitle}&country=UA&key={apiKey}";
-
 
         using (HttpClient client = new())
         {
@@ -31,11 +29,13 @@ public class BookSearch
                     for (int i = 0; i < 10; i ++)
                     {
                         dynamic volumeInfo = jsonData.items[i].volumeInfo;
+
                         string bookTitle = volumeInfo.title;
                         string bookDescription = volumeInfo.description ?? "";
                         string bookAuthor = volumeInfo.authors != null ? string.Join(", ", volumeInfo.authors) : "";
                         string coverUrl = volumeInfo.imageLinks != null ? volumeInfo.imageLinks.thumbnail : "";
                         int? pageCount = volumeInfo.pageCount;
+
                         if (pageCount != null)
                         {
                             book = new Book(bookTitle, bookAuthor, bookDescription, (int)pageCount, coverUrl);

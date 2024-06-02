@@ -68,24 +68,18 @@ public partial class SearchViewModel : ObservableObject
         if (SelectedBook != null)
         {
             LibraryViewModel.Books.Add(SelectedBook);
-            string filePath = "C:\\Users\\Liliia\\source\\repos\\ogurtsy_new\\chitalka_courseWork\\DB\\data.json";
-            string json = JsonConvert.SerializeObject(LibraryViewModel.Books, Formatting.Indented);
-            File.WriteAllText(filePath, json);
         }
     }
 
-
-
     private void GetNewBookFromUser()
     {
-        int pagesRead = 0;
         var inputDialog = new AddingBookManuallyDialog();
 
         ManuallyAddedBook = new Book("", "", "", 0, "");
 
         if (inputDialog.ShowDialog() == true)
         {
-            ManuallyAddedBook = new Book(inputDialog.Title, inputDialog.Author, "", inputDialog.PagesCount, "");
+            ManuallyAddedBook = new Book(inputDialog.BookTitle, inputDialog.Author, "", inputDialog.PagesCount, inputDialog.CoverImagePath);
             LibraryViewModel.Books.Add(ManuallyAddedBook);
         }
 

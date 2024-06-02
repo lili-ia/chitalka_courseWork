@@ -9,6 +9,5 @@ namespace chitalka_courseWork.MVVM.Model
 
         [ObservableProperty]
         private int _rating;
-
     }
 }

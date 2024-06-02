@@ -207,7 +207,7 @@
                                         <GradientStop Color="#31304D" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <Image Source="{Binding CoverImageUrl}"/>
+                                <Image Source="{Binding CoverImageUrl}" Stretch="UniformToFill"/>
                                 <Border.Clip>
                                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,200"/>
                                 </Border.Clip>

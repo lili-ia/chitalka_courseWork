@@ -3,11 +3,9 @@ using chitalka_courseWork.MVVM.View;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
-using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
-using System.Windows.Data;
 
 namespace chitalka_courseWork.MVVM.ViewModel
 {
@@ -73,10 +71,13 @@ namespace chitalka_courseWork.MVVM.ViewModel
         [ObservableProperty]
         private string _noteContent;
 
-        private readonly string booksDataFilePath = "C:\\Users\\Liliia\\source\\repos\\ogurtsy_new\\chitalka_courseWork\\DB\\data.json";
+        private readonly string booksDataFilePath;
 
         public LibraryViewModel()
         {
+            string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            booksDataFilePath = Path.Combine(projectDirectory, "DB", "data.json");
+            
             LoadBooksData();
             Books.CollectionChanged += Books_CollectionChanged;
             FilteredCollection = new ObservableCollection<Book>(Books);
@@ -89,12 +90,9 @@ namespace chitalka_courseWork.MVVM.ViewModel
             FilterByReadingStatusCommand = new RelayCommand(FilterBooksByReadingStatus);
             FilterByRatingCommand = new RelayCommand(FilterBooksByRating);
             AddNoteCommand = new RelayCommand(AddNote);
-            EditModeCommand = new RelayCommand(EditProperty);
-
-            foreach (Book book in Books)
-            {
-                book.Stats.UpdateProgress();
-            }
+            EditModeCommand = new RelayCommand(EditBook);
+            RateCommand = new RelayCommand<int>(Rate);
+            
 
             StarRatings =
             [
@@ -104,7 +102,7 @@ namespace chitalka_courseWork.MVVM.ViewModel
                 new() { Rating = 4 },
                 new() { Rating = 5 }
             ]; 
-            RateCommand = new RelayCommand<int>(Rate);
+            
         }
 
         private void AddNote()
@@ -216,19 +214,19 @@ namespace chitalka_courseWork.MVVM.ViewModel
             {
                 var filteredBooks = Books.AsEnumerable();
 
-                if (SelectedRatingFilterCriterion.Contains("1"))
+                if (SelectedRatingFilterCriterion.Contains('1'))
                     filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 1);
 
-                else if (SelectedRatingFilterCriterion.Contains("2"))
+                else if (SelectedRatingFilterCriterion.Contains('2'))
                     filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 2);
 
-                else if (SelectedRatingFilterCriterion.Contains("3"))
+                else if (SelectedRatingFilterCriterion.Contains('3'))
                     filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 3);
 
-                else if (SelectedRatingFilterCriterion.Contains("4"))
+                else if (SelectedRatingFilterCriterion.Contains('4'))
                     filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 4);
 
-                else if (SelectedRatingFilterCriterion.Contains("5"))
+                else if (SelectedRatingFilterCriterion.Contains('5'))
                     filteredBooks = filteredBooks.Where(book => book.Stats.Rating == 5);
                 
                 else 
@@ -294,19 +292,36 @@ namespace chitalka_courseWork.MVVM.ViewModel
 
         }
 
-        private void EditProperty() 
+        private void EditBook() 
         {
-            var editingDialog = new EditingBookDialog();
+            var editingDialog = new EditingBookDialog(SelectedBook);
 
             if (editingDialog.ShowDialog() == true)
             {
-                
+                if (!string.IsNullOrWhiteSpace(editingDialog.BookTitle))
+                    SelectedBook!.Title = editingDialog.BookTitle;
+
+                if (!string.IsNullOrWhiteSpace(editingDialog.Author))
+                    SelectedBook!.Author = editingDialog.Author;
+
+                if (!string.IsNullOrWhiteSpace(editingDialog.Description))
+                    SelectedBook!.Description = editingDialog.Description;
+
+                if (editingDialog.PagesCount != 0)
+                {
+                    SelectedBook!.PagesCount = editingDialog.PagesCount;
+                    SelectedBook.Stats.SetTotalPageCount(editingDialog.PagesCount);
+                }
+
+                if (!string.IsNullOrWhiteSpace(editingDialog.CoverImagePath))
+                    SelectedBook!.CoverImageUrl = editingDialog.CoverImagePath;
+
+
             }
                 
-
+            OnPropertyChanged(nameof(SelectedBook.Stats));
             UpdateBooksCollection();
         }
-
 
 
         partial void OnSelectedBookChanged(Book? value)
@@ -375,7 +390,7 @@ namespace chitalka_courseWork.MVVM.ViewModel
             }
         }
 
-        private int GetPagesReadFromUser()
+        private static int GetPagesReadFromUser()
         {
             int pagesRead = 0;
             var inputDialog = new PagesReadDialog();
@@ -385,7 +400,6 @@ namespace chitalka_courseWork.MVVM.ViewModel
 
             return pagesRead;
         }
-
 
 
         private void UpdateStarRatings()
