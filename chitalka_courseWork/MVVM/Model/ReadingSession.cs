@@ -9,9 +9,6 @@ namespace chitalka_courseWork.MVVM.Model
 
         [ObservableProperty]
         private TimeSpan _readingTime;
-
-        [ObservableProperty]
-        private DateOnly _readingDate;
         
     }
 }

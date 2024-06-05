@@ -77,14 +77,15 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        
+
+
     </UserControl.Resources>
 
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -98,19 +99,28 @@
                         Name="ClearFiltersSortingButton"
                         Command="{Binding ClearFiltersSortingCommand}"
                         Click="ClearFiltersSortingButton_Click"/>
+                
                 <StackPanel Orientation="Vertical" Margin="2">
                     <TextBlock Text="Sort by"/>
-                    <ComboBox SelectedValue="{Binding SelectedSortCriterion}">
+                    <ComboBox SelectedValue="{Binding SelectedSortCriterion, Mode=TwoWay}">
                         <ComboBoxItem Content="Title"/>
                         <ComboBoxItem Content="Author"/>
                         <ComboBoxItem Content="Pages"/>
                         <ComboBoxItem Content="Rating"/>
                     </ComboBox>
                 </StackPanel>
-
+                
+                <StackPanel VerticalAlignment="Bottom">
+                    <Button Width="30"
+                            Name="SortingDirectionButton"
+                            Command="{Binding ChangeSortDirectionCommand}">
+                        <Image Source="C:\Users\Liliia\source\repos\ogurtsy_new\chitalka_courseWork\Media\sortingImage.png"/>
+                    </Button>
+                </StackPanel>
+                
                 <StackPanel Orientation="Vertical" Margin="2">
-                    <TextBlock Text="Filter by Reading Status"/>
-                    <ComboBox SelectedValue="{Binding SelectedReadingStatusFilterCriterion}">
+                    <TextBlock Text="Reading Status"/>
+                    <ComboBox SelectedValue="{Binding SelectedReadingStatusFilterCriterion, Mode=TwoWay}">
                         <ComboBoxItem Content="NotStarted"/>
                         <ComboBoxItem Content="InProgress"/>
                         <ComboBoxItem Content="Read"/>
@@ -118,7 +128,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Margin="2">
-                    <TextBlock Text="Filter by Rating"/>
+                    <TextBlock Text="Rating"/>
                     <ComboBox SelectedValue="{Binding SelectedRatingFilterCriterion}">
                         <ComboBoxItem Content="0"/>
                         <ComboBoxItem Content="1"/>
@@ -129,9 +139,11 @@
                     </ComboBox>
                 </StackPanel>
             </StackPanel>
+            
             <StackPanel>
                 <ui:AutoSuggestBox Text="{Binding Query, Mode=TwoWay}" QueryIcon="Find" QuerySubmitted="AutoSuggestBox_QuerySubmitted"/>
             </StackPanel>
+            
         </StackPanel>
 
         <Border Grid.Row="1">
@@ -258,7 +270,6 @@
                                     Width="80"
                                     VerticalAlignment="Bottom"
                                     HorizontalAlignment="Left"
-                                    Command="{Binding StartReadingSessionCommand}"
                                     Click="ReadButton_Click"/>
 
                         </StackPanel>
@@ -268,7 +279,7 @@
                                 
                                 <StackPanel>
                                     <DockPanel Style="{StaticResource DockPanelStatusStyle}">
-                                        <TextBlock Text="⏲️ Timer " Margin="5"/>
+                                        <TextBlock Text="⏲️ Reading Timer " Margin="5"/>
                                         <TextBlock Text="{Binding ReadingTimer}"/>
                                         <Button Name="StartTimerButton" 
                                                 Content="▶️" 
@@ -301,7 +312,7 @@
                                     
                                     <DockPanel Style="{StaticResource DockPanelStatusStyle}">
                                         <TextBlock Text="✒️ " Margin="5"/>
-                                        <TextBox Name="NoteTextBox" Text="{Binding Note}" Margin="5"/>
+                                        <TextBox Name="NoteTextBox" Text="{Binding Note}" Margin="5" TextWrapping="Wrap"/>
                                         <Button Name="AddNoteButton" Content="Add Note" Click="AddNoteButton_Click" Command="{Binding AddNoteCommand}" Margin="5"/>
                                     </DockPanel>
                                     

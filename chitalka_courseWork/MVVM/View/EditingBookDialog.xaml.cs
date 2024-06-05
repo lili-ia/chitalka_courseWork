@@ -44,17 +44,23 @@ namespace chitalka_courseWork.MVVM.View
             Author = AuthorTextBox.Text;
             Description = DescriptionTextBox.Text;
 
-            if (int.TryParse(PagesAmountTextBox.Text, out int pages) && pages >= 0)
+            if (string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(BookTitle))
+                MessageBox.Show("Author or title may be incorrect.");
+
+            if (int.TryParse(PagesAmountTextBox.Text, out int pages) && pages > 0)
             {
                 PagesCount = pages;
+                if (!string.IsNullOrEmpty(Author) && !string.IsNullOrEmpty(BookTitle))
+                    DialogResult = true;
+
             }
-            else if (!string.IsNullOrWhiteSpace(PagesAmountTextBox.Text))
+            else
             {
-                MessageBox.Show("Будь ласка, введіть коректну кількість сторінок.");
+                MessageBox.Show("Pages count may be incorrect.");
                 return;
             }
 
-            DialogResult = true;
+            
         }
 
         private void ChooseCoverButton_Click(object sender, RoutedEventArgs e)

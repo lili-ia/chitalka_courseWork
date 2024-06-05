@@ -40,7 +40,6 @@ namespace chitalka_courseWork.MVVM.Model
         }
 
 
-
         public void UpdateProgress()
         {
             PagesRead = ReadingSessions.Sum(session => session.PagesRead);

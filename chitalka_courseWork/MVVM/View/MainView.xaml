@@ -41,14 +41,16 @@
                              Foreground="#F0ECE5"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding SearchRelayCommand}"/>
+                             Command="{Binding SearchRelayCommand}"
+                             Width="160"/>
 
             <RadioButton Content="Library"
                              Height="60"
                              Foreground="#F0ECE5"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding LibraryRelayCommand}"/>
+                             Command="{Binding LibraryRelayCommand}"
+                             Width="160"/>
 
 
 

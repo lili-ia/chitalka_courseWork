@@ -13,7 +13,7 @@ namespace chitalka_courseWork.MVVM.View
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(PagesReadTextBox.Text, out int pages) && pages >= 0)
+            if (int.TryParse(PagesReadTextBox.Text, out int pages) && pages > 0)
             {
                 PagesRead = pages;
                 DialogResult = true;

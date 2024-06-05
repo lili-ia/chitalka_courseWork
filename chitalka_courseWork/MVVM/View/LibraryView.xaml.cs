@@ -22,8 +22,10 @@ public partial class LibraryView : UserControl
 
     private void ReadButton_Click(object sender, RoutedEventArgs e)
     {
+
         if (viewModel.SelectedBook != null) 
         {
+
             viewModel.SelectedBook.ReadingStatus = ReadingStatus.InProgress;
             viewModel.UpdateBooksCollection();
         }
@@ -67,4 +69,6 @@ public partial class LibraryView : UserControl
     {
         viewModel.EditModeCommand.Execute(null);
     }
+
+    
 }

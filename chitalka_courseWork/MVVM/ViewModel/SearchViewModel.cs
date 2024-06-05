@@ -61,6 +61,9 @@ public partial class SearchViewModel : ObservableObject
         {
             SearchResults.Add(book);
         }
+
+        if (SearchResults.Count == 0)
+           MessageBox.Show("Can`t find anything.");
     }
 
     public void AddBook()
@@ -79,7 +82,7 @@ public partial class SearchViewModel : ObservableObject
 
         if (inputDialog.ShowDialog() == true)
         {
-            ManuallyAddedBook = new Book(inputDialog.BookTitle, inputDialog.Author, "", inputDialog.PagesCount, inputDialog.CoverImagePath);
+            ManuallyAddedBook = new Book(inputDialog.BookTitle, inputDialog.Author, inputDialog.Description, inputDialog.PagesCount, inputDialog.CoverImagePath);
             LibraryViewModel.Books.Add(ManuallyAddedBook);
         }
 

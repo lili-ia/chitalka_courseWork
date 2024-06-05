@@ -29,6 +29,8 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private RelayCommand _addNoteCommand;
         [ObservableProperty]
         private RelayCommand _editModeCommand;
+        [ObservableProperty]
+        private RelayCommand _changeSortDirectionCommand;
 
         [ObservableProperty]
         private Book? _selectedBook;
@@ -72,13 +74,14 @@ namespace chitalka_courseWork.MVVM.ViewModel
         private string _noteContent;
 
         private readonly string booksDataFilePath;
-
+        private bool _isAscending;
         public LibraryViewModel()
         {
             string projectDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
             booksDataFilePath = Path.Combine(projectDirectory, "DB", "data.json");
             
             LoadBooksData();
+            _isAscending = true;
             Books.CollectionChanged += Books_CollectionChanged;
             FilteredCollection = new ObservableCollection<Book>(Books);
 
@@ -92,7 +95,7 @@ namespace chitalka_courseWork.MVVM.ViewModel
             AddNoteCommand = new RelayCommand(AddNote);
             EditModeCommand = new RelayCommand(EditBook);
             RateCommand = new RelayCommand<int>(Rate);
-            
+            ChangeSortDirectionCommand = new RelayCommand(ChangeSortDirection);
 
             StarRatings =
             [
@@ -103,6 +106,17 @@ namespace chitalka_courseWork.MVVM.ViewModel
                 new() { Rating = 5 }
             ]; 
             
+        }
+
+        private void ChangeSortDirection()
+        {
+            if (SelectedSortCriterion != null)
+            {
+                _isAscending = !_isAscending;
+                SortBooks();
+            }
+            else
+                MessageBox.Show("Ви не обрали критерії для сортування!");
         }
 
         private void AddNote()
@@ -168,12 +182,6 @@ namespace chitalka_courseWork.MVVM.ViewModel
             FilteredCollection = new ObservableCollection<Book>(Books);
         }
 
-        partial void OnBooksChanged(ObservableCollection<Book> value)
-        {
-            UpdateBooksCollection();
-            FilteredCollection = new ObservableCollection<Book>(Books);
-        }
-
         public void UpdateBooksCollection()
         {
             string json = JsonConvert.SerializeObject(Books, Formatting.Indented);
@@ -203,10 +211,23 @@ namespace chitalka_courseWork.MVVM.ViewModel
 
         public void SearchByQueryInBooklist()
         {
-            var filteredBooks = Books.AsEnumerable();
-            filteredBooks = filteredBooks.Where(book => (book.Title.Contains(Query, StringComparison.CurrentCultureIgnoreCase) || book.Author.Contains(Query, StringComparison.CurrentCultureIgnoreCase)));
-            FilteredCollection = new ObservableCollection<Book>(filteredBooks);
+            if (string.IsNullOrWhiteSpace(Query))
+            {
+                FilteredCollection = new ObservableCollection<Book>(Books);
+            }
+            else
+            {
+                var queryWords = Query.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                var filteredBooks = Books.AsEnumerable().Where(book =>
+                    queryWords.All(word =>
+                        book.Title.Contains(word, StringComparison.CurrentCultureIgnoreCase) ||
+                        book.Author.Contains(word, StringComparison.CurrentCultureIgnoreCase)));
+
+                FilteredCollection = new ObservableCollection<Book>(filteredBooks);
+            }
         }
+
 
         public void FilterBooksByRating()
         {
@@ -258,17 +279,35 @@ namespace chitalka_courseWork.MVVM.ViewModel
             {
                 var sortedBooks = FilteredCollection.AsEnumerable();
 
-                if (SelectedSortCriterion.Contains("Title"))
-                    sortedBooks = sortedBooks.OrderBy(book => book.Title);
+                if (_isAscending)
+                {
 
-                else if (SelectedSortCriterion.Contains("Author"))
-                    sortedBooks = sortedBooks.OrderBy(book => book.Author);
+                    if (SelectedSortCriterion.Contains("Title"))
+                        sortedBooks = sortedBooks.OrderBy(book => book.Title);
 
-                else if (SelectedSortCriterion.Contains("Pages"))
-                    sortedBooks = sortedBooks.OrderBy(book => book.PagesCount);
+                    else if (SelectedSortCriterion.Contains("Author"))
+                        sortedBooks = sortedBooks.OrderBy(book => book.Author);
 
+                    else if (SelectedSortCriterion.Contains("Pages"))
+                        sortedBooks = sortedBooks.OrderBy(book => book.PagesCount);
+
+                    else
+                        sortedBooks = sortedBooks.OrderBy(book => book.Stats.Rating);
+                }
                 else
-                    sortedBooks = sortedBooks.OrderBy(book => book.Stats.Rating);
+                {
+                    if (SelectedSortCriterion.Contains("Title"))
+                        sortedBooks = sortedBooks.OrderByDescending(book => book.Title);
+
+                    else if (SelectedSortCriterion.Contains("Author"))
+                        sortedBooks = sortedBooks.OrderByDescending(book => book.Author);
+
+                    else if (SelectedSortCriterion.Contains("Pages"))
+                        sortedBooks = sortedBooks.OrderByDescending(book => book.PagesCount);
+
+                    else
+                        sortedBooks = sortedBooks.OrderByDescending(book => book.Stats.Rating);
+                }
 
                 FilteredCollection = new ObservableCollection<Book>(sortedBooks);
                
@@ -298,27 +337,18 @@ namespace chitalka_courseWork.MVVM.ViewModel
 
             if (editingDialog.ShowDialog() == true)
             {
-                if (!string.IsNullOrWhiteSpace(editingDialog.BookTitle))
-                    SelectedBook!.Title = editingDialog.BookTitle;
 
-                if (!string.IsNullOrWhiteSpace(editingDialog.Author))
-                    SelectedBook!.Author = editingDialog.Author;
+                SelectedBook!.Title = editingDialog.BookTitle;
+                SelectedBook!.Author = editingDialog.Author;
+                SelectedBook!.Description = editingDialog.Description;
 
-                if (!string.IsNullOrWhiteSpace(editingDialog.Description))
-                    SelectedBook!.Description = editingDialog.Description;
-
-                if (editingDialog.PagesCount != 0)
-                {
-                    SelectedBook!.PagesCount = editingDialog.PagesCount;
-                    SelectedBook.Stats.SetTotalPageCount(editingDialog.PagesCount);
-                }
+                SelectedBook!.PagesCount = editingDialog.PagesCount;
+                SelectedBook.Stats.SetTotalPageCount(editingDialog.PagesCount);
+                
 
                 if (!string.IsNullOrWhiteSpace(editingDialog.CoverImagePath))
                     SelectedBook!.CoverImageUrl = editingDialog.CoverImagePath;
-
-
             }
-                
             OnPropertyChanged(nameof(SelectedBook.Stats));
             UpdateBooksCollection();
         }
@@ -334,9 +364,17 @@ namespace chitalka_courseWork.MVVM.ViewModel
         {
             if (SelectedBook != null)
             {
-                Books.Remove(SelectedBook);
-                FilteredCollection.Remove(SelectedBook);
-                SelectedBook = null;
+                var cw = new ConfirmationWindow();
+                if (cw.ShowDialog() == true)
+                {
+                    if (cw.IsYesChoice)
+                    {
+                        Books.Remove(SelectedBook);
+                        FilteredCollection.Remove(SelectedBook);
+                        SelectedBook = null;
+                    }
+                }
+                
             }
             else
             {
@@ -356,37 +394,42 @@ namespace chitalka_courseWork.MVVM.ViewModel
         {
             timeEnd = DateTime.Now;
 
-            if (SelectedBook != null)
+            if (timeStart == DateTime.MinValue)
             {
-                var today = DateOnly.FromDateTime(timeEnd);
-                int pagesRead = GetPagesReadFromUser();
-
-                if (pagesRead > 0)
-                {
-                    ReadingSession = new ReadingSession()
-                    {
-                        ReadingTime = timeEnd - timeStart,
-                        ReadingDate = today,
-                        PagesRead = pagesRead,
-                    };
-
-                    var currentSelectedBook = SelectedBook;
-
-                    currentSelectedBook.Stats.ReadingSessions.Add(ReadingSession);
-                    currentSelectedBook.Stats.UpdateProgress();
-
-                    UpdateBooksCollection();
-
-                    timeStart = DateTime.MinValue;
-                    timeEnd = DateTime.MinValue;
-
-                    SelectedBook = null;
-                    SelectedBook = currentSelectedBook;
-                }
+                MessageBox.Show("Incorrect reading session.");
             }
             else
             {
-                MessageBox.Show("Ви не обрали книгу!");
+                if (SelectedBook != null)
+                {
+                    int pagesRead = GetPagesReadFromUser();
+
+                    if (pagesRead > 0)
+                    {
+                        ReadingSession = new ReadingSession()
+                        {
+                            ReadingTime = timeEnd - timeStart,
+                            PagesRead = pagesRead,
+                        };
+
+                        var currentSelectedBook = SelectedBook;
+
+                        currentSelectedBook.Stats.ReadingSessions.Add(ReadingSession);
+                        currentSelectedBook.Stats.UpdateProgress();
+
+                        UpdateBooksCollection();
+
+                        timeStart = DateTime.MinValue;
+                        timeEnd = DateTime.MinValue;
+
+                        SelectedBook = null;
+                        SelectedBook = currentSelectedBook;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ви не обрали книгу!");
+                }
             }
         }
 

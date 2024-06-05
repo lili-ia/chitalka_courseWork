@@ -5,15 +5,15 @@ namespace chitalka_courseWork;
 
 public class BookSearch
 {
-    private static readonly string apiKey = "AIzaSyCEMRkC0TfWFk9pgfy1wkwEflW2k73BTT0";
+    private static readonly string _apiKey = "";
 
-    public static async Task<List<Book>> Search(string title)
+    public static async Task<List<Book>> Search(string query)
     {
         Book book = null;
         List<Book> searchResults = [];
 
-        string encodedTitle = Uri.EscapeDataString(title);
-        string url = $"https://www.googleapis.com/books/v1/volumes?q={encodedTitle}&country=UA&key={apiKey}";
+        string encodedTitle = Uri.EscapeDataString(query);
+        string url = $"https://www.googleapis.com/books/v1/volumes?q={encodedTitle}&country=UA&key={_apiKey}";
 
         using (HttpClient client = new())
         {
